@@ -180,5 +180,4 @@ if (NOT DEFINED SMCE_CPACK_PROFILE)
     set (SMCE_CPACK_PROFILE "Archive")
 endif ()
 include ("${PROJECT_SOURCE_DIR}/CMake/PackagingProfiles/${SMCE_CPACK_PROFILE}.cmake")
-
 include (CPack)
