@@ -55,7 +55,6 @@ String Sketch::get_source() { return sketch.get_source().c_str(); }
 
 bool Sketch::is_compiled() { return sketch.is_compiled(); }
 
-
 String Sketch::get_uuid() {
     const auto hex = sketch.get_uuid().to_hex();
     return hex.c_str();
