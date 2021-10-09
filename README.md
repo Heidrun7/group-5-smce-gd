@@ -15,6 +15,11 @@ Initially created to emulate cars supporting the [smartcar_shield](https://githu
 1. **Setup** (follow the setup for: [Windows](https://github.com/ItJustWorksTM/smce-gd/wiki/Windows-setup) / [MacOS](https://github.com/ItJustWorksTM/smce-gd/wiki/MacOS-setup) / [Debian-based GNU/Linux](https://github.com/ItJustWorksTM/smce-gd/wiki/Debian-based-Linux-setup))
 2. [libSMCE Releases](https://github.com/ItJustWorksTM/libSMCE/releases) (extract/install the artifact for your OS, Windows users should download the *Release* version)
 3. Set the env var `SMCE_ROOT` pointed to the root of the extracted *libSMCE directory*
+   1. On Windows:
+   2. On MacOS:
+      1. Open Terminal window in the user's root directory
+         ```nano .bash_profile```
+      2. Add the env variable to the file (change the name of the release directory to match the one on your system): ```export SMCE_ROOT=~/libSMCE-release```
 4. Restart the computer to make sure the env var gets applied
 
 ### Building on Windows
@@ -40,13 +45,20 @@ cmake -B build
 cmake --build build --target godot-smce
 ```
 
+Then open the Godot Editor and import the project file found at _smce_gd/project/project.godot_
+
 Packaging is done using _CPack_.  
 _note: we bundle the shared lib of SMCE on export_
 
-### Running
+### Running on Windows
 
 * `godot --path project/`
 * Or open up the project folder in the _Godot editor_ and start from there.
+
+### Running on MacOS
+* `godot --path project/`
+* You may encounter an error when first running the program due to your Mac's security settings.
+  * Go to _System Preferences > Security and Privacy_ and if it says _"libSMCE was blocked from use because it is not from a identified developer"_, click on _Allow anyway_.
 
 ### Credits
 
