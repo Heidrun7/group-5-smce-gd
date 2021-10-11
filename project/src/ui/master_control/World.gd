@@ -24,6 +24,7 @@ var debug_car: Spatial = null
 
 onready var cam_ctl: CamCtl = $Camera
 
+#Function to be able to spawn a debug-car in the world.
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_car_spawn"):
 		if debug_car:
@@ -39,17 +40,19 @@ func _input(event: InputEvent) -> void:
 			cam_ctl.lock_cam(debug_car)
 
 
+
 func _ready() -> void:
 	DebugCanvas.disabled = true
 	_setup_cams()
 
 
+#Set-up for the different cameras to follow the car.
 func _setup_cams() -> void:
 	cam_ctl.locked_cam = $Camera/LockedCam
 	cam_ctl.free_cam = $Camera/FreeCam
 	cam_ctl.interp_cam = $Camera/InterpolatedCamera
 
-
+#Creating a world from a given scene.
 func load_world(scene: PackedScene) -> bool:
 	yield(get_tree(), "idle_frame")
 	var instance = scene.instance()
@@ -67,7 +70,7 @@ func load_world(scene: PackedScene) -> bool:
 		return true
 	return false
 
-
+#Removes the current world (scene).
 func clear_world() -> void:
 	yield(get_tree(), "idle_frame")
 	if is_instance_valid(world):
