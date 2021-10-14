@@ -103,6 +103,6 @@ func _error(message: String) -> void:
 	_header.text += "\n" + message
 	error = "Error Reason: " + message + "\n" + logfile
 
-# Checks if clipboard copy functionality is working or gives error.
+# Checks if clipboard error
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
