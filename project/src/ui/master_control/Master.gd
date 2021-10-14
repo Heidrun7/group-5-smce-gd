@@ -139,7 +139,7 @@ func load_profile(profile: ProfileConfig) -> void:
 	
 	
 	hud = hud_t.instance()
-	hud.cam_ctl = world.cam_ctl
+	hud.ctrl_cam = world.ctrl_cam
 	hud.profile = active_profile
 	hud.sketch_manager = sketch_manager
 	hud.master_manager = self
