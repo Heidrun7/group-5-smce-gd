@@ -25,6 +25,7 @@ onready var _button: Button = $Button
 
 var error: String = ""
 
+# Function to be able to set user custom directory with environment
 
 func _ready():
 	var custom_dir = OS.get_environment("SMCEGD_USER_DIR")
@@ -41,6 +42,8 @@ func _ready():
 	if file.open("res://share/version.txt", File.READ) == OK:
 		version = file.get_as_text()
 		file.close()
+		
+# checks version support
 
 	Global.version = version
 
@@ -51,6 +54,8 @@ func _ready():
 	print("User dir: %s" % Global.user_dir)
 	print()
 	
+# Error handling on loading resources
+
 	var dir = Directory.new()
 	
 	if dir.open("res://share/RtResources") != OK:
@@ -79,16 +84,19 @@ func _ready():
 	
 	Global.scan_named_classes("res://src")
 	
-	# somehow destroys res://
+# somehow destroys res://
 	ModManager.load_mods()
 	
 	_continue()
+	
+# Function to check main scene exist or not
 
 func _continue():
 	if ! main_scene:
 		return _error("No Main Scene")
 	get_tree().change_scene_to(main_scene)
 
+# Function to report log file successful or not
 
 func _error(message: String) -> void:
 	var file: File = File.new()
@@ -100,6 +108,7 @@ func _error(message: String) -> void:
 	_header.text += "\n" + message
 	error = "Error Reason: " + message + "\n" + logfile
 
+# Function checks if clipboard copy functionality is working or gives error.
 
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
