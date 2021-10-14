@@ -9,7 +9,7 @@
 | T7 | Administrative | S | Small tasks related to the project such as setting up the git repo. Mainly simple tasks. |
 | T8 | Research: Mainly on Godot and C++ to be able to work with the SMCE framework. | M | Everyone took sufficient amount of time before being able to start on tasks, getting to know the framework and how to work with it. |
 | T9| Stakeholder Communication | S | Through text in very usefull discussions on Discord. |
-| T10 | Milestone Preperation. Creating and preparing presentation and class demo.  Creating Task List. | S | -  |
+| T10 | Milestone 2 Preperation. Creating and preparing presentation and class demo.  Creating Task List. | S | -  |
 
 
 | Name |Task ID|  Contribution in % | 
