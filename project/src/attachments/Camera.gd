@@ -15,6 +15,8 @@
 #  limitations under the License.
 #
 
+# Controls how the Camera operates
+
 extends Spatial
 func extern_class_name():
 	return "Camera"
