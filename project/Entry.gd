@@ -25,7 +25,7 @@ onready var _button: Button = $Button
 
 var error: String = ""
 
-
+# Function to be able to set user custom directory with environment
 func _ready():
 	var custom_dir = OS.get_environment("SMCEGD_USER_DIR")
 	if custom_dir != "":
@@ -41,7 +41,8 @@ func _ready():
 	if file.open("res://share/version.txt", File.READ) == OK:
 		version = file.get_as_text()
 		file.close()
-
+		
+# Checks version support
 	Global.version = version
 
 	OS.set_window_title("SMCE-gd: %s" % version)
@@ -51,6 +52,7 @@ func _ready():
 	print("User dir: %s" % Global.user_dir)
 	print()
 	
+# Error handling on loading resources
 	var dir = Directory.new()
 	
 	if dir.open("res://share/RtResources") != OK:
@@ -79,17 +81,18 @@ func _ready():
 	
 	Global.scan_named_classes("res://src")
 	
-	# somehow destroys res://
+# somehow destroys res://
 	ModManager.load_mods()
 	
 	_continue()
-
+	
+# Check if main scene exist or not
 func _continue():
 	if ! main_scene:
 		return _error("No Main Scene")
 	get_tree().change_scene_to(main_scene)
 
-
+# Function to report log file successful or not
 func _error(message: String) -> void:
 	var file: File = File.new()
 	var result = file.open("user://logs/godot.log", File.READ)
@@ -100,6 +103,6 @@ func _error(message: String) -> void:
 	_header.text += "\n" + message
 	error = "Error Reason: " + message + "\n" + logfile
 
-
+# Checks if clipboard error
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
