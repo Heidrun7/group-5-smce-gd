@@ -92,7 +92,7 @@ func _continue():
 		return _error("No Main Scene")
 	get_tree().change_scene_to(main_scene)
 
-# Sets the error string to the users clipboard
+# Function to report log file successful or not
 func _error(message: String) -> void:
 	var file: File = File.new()
 	var result = file.open("user://logs/godot.log", File.READ)
