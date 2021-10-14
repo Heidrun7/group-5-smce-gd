@@ -22,13 +22,10 @@ onready var focus_owner = FocusOwner
 onready var mod_manager = ModManager
 
 # Checks the environments and loads playground
-
 var environments: Dictionary = {
 	"playground/Playground": preload("res://src/environments/playground/Playground.tscn"),
 }
-
 # Checks the Cars and preloads them
-
 var vehicles: Dictionary = {
 	"RayCar": preload("res://src/objects/ray_car/RayCar.tscn"),
 	"RayTank": preload("res://src/objects/ray_car/RayTank.tscn")
@@ -36,10 +33,7 @@ var vehicles: Dictionary = {
 
 var user_dir: String = OS.get_user_data_dir() setget set_user_dir
 var version: String = "unknown"
-
 # Gets and preload user data directory in an array
-
-
 var _classes: Array = [
 	AnalogRaycast, BrushedMotor,
 	preload("res://src/attachments/Camera.gd"),
@@ -53,9 +47,8 @@ var classes: Dictionary = {}
 
 func usr_dir_plus(suffix: String) -> String:
 	return "%s/%s" % [user_dir, suffix]
-
+	
 # Checks user directory path correct or not
-
 func set_user_dir(path: String) -> bool:
 	var dir = Directory.new()
 	
@@ -67,7 +60,6 @@ func set_user_dir(path: String) -> bool:
 	return true
 
 # Checks the environments registeration 
-
 func register_environment(name: String, scene: PackedScene) -> bool:
 	if name == "" || !is_instance_valid(scene) || !scene.can_instance():
 		return false
@@ -78,8 +70,6 @@ func register_environment(name: String, scene: PackedScene) -> bool:
 
 
 # Checks the vehicle registeration ready for scene or not
-
-
 func register_vehicle(name: String, scene: PackedScene) -> bool:
 	if name == "" || !is_instance_valid(scene) || !scene.can_instance():
 		return false
@@ -87,25 +77,19 @@ func register_vehicle(name: String, scene: PackedScene) -> bool:
 	vehicles[name] = scene
 	print("Registered vehicle: %s" % name)
 	return true
-
-
 # Function to get the environment name
 
 func get_environment_names() -> Array:
 	return environments.keys()
-
 # Function to get the environment name and returns otherwise return null
 
 func get_environment(name: String) -> PackedScene:
 	if environments.has(name):
 		return environments[name]
 	return null
-
-# Function to get the class name being loaded
-
+# Function to get the class name being loaded from path
 func scan_named_classes(path: String) -> void:
 	classes = _scan_named_classes(path)
-
 
 func _scan_named_classes(path: String) -> Dictionary:
 	var dir: Directory = Directory.new()
