@@ -15,6 +15,8 @@
 #  limitations under the License.
 #
 
+# Controls how the Camera operates
+
 extends Spatial
 func extern_class_name():
 	return "Camera"
@@ -37,12 +39,15 @@ var fps = 0
 var vflip: bool = false
 var hflip: bool = false
 
+
+# Set the view IF view is not null
 func set_view(_view: Node) -> void:
 	if ! _view:
 		return
 	view = _view
 
 
+# Initialize the camera
 func _ready():
 	timer.connect("timeout", self, "_on_frame")
 	
@@ -76,6 +81,7 @@ func _ready():
 	add_child(viewport)
 
 
+# Loads and displays the current frame
 func _on_frame() -> void:
 	if ! view || ! view.is_valid():
 		return
@@ -93,6 +99,7 @@ func _on_frame() -> void:
 		var ret = view.framebuffers(pin).write_rgb888(img)
 
 
+# Adjusts resolution and FPS of the camera
 func _physics_process(delta):
 	viewport.get_camera().global_transform.origin = global_transform.origin
 	viewport.get_camera().global_transform.basis = global_transform.basis
@@ -100,9 +107,11 @@ func _physics_process(delta):
 	
 	if ! view || ! view.is_valid():
 		return
+	
 	var buffer = view.framebuffers(pin)
 	var new_res = Vector2(buffer.get_width(), buffer.get_height())
 	var new_freq = buffer.get_freq()
+	
 	if new_res != resolution:
 		viewport.size = new_res
 		effect.get_material().set_shader_param("resolution", viewport.size)
@@ -120,11 +129,13 @@ func _physics_process(delta):
 		DebugCanvas.add_draw(camera.global_transform.origin, camera.global_transform.origin + camera.global_transform.basis.xform(Vector3.FORWARD), Color.yellow)
 
 
+# Returns a NodeVisualizer object that contain information that's necessary to render/visualize
 func visualize() -> Control:
 	var visualizer = NodeVisualizer.new()
 	visualizer.display_node(self, "visualize_content")
 	return visualizer
 
 
+# Extracts variables from provided object to create a String is compatible with the var _visual_func in NodeVisualizer
 func visualize_content() -> String:
 	return "   Resolution: %dx%d\n   FPS: %d\n   V Flip: %s\n   H Flip: %s" % [resolution.x, resolution.y, fps, vflip, hflip]
