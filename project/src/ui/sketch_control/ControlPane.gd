@@ -50,7 +50,7 @@ onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 
 var sketch_path: String = ""
 
-var cam_ctl: CamCtl = null setget set_cam_ctl
+var ctrl_cam: ControllableCamera = null setget set_ctrl_cam
 
 var vehicle = null
 
@@ -220,12 +220,12 @@ func _on_board_stopped(exit_code: int) -> void:
 	vehicle.queue_free()
 
 
-func set_cam_ctl(ctl: CamCtl) -> void:
+func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	if ! ctl:
 		return
-	cam_ctl = ctl
-	cam_ctl.connect("cam_locked", self, "_on_cam_ctl")
-	cam_ctl.connect("cam_freed", self, "_on_cam_ctl", [null])
+	ctrl_cam = ctl
+	ctrl_cam.connect("cam_locked", self, "_on_ctrl_cam")
+	ctrl_cam.connect("cam_freed", self, "_on_ctrl_cam", [null])
 
 
 func _on_board_log(part: String):
@@ -241,15 +241,15 @@ func _on_close() -> void:
 	queue_free()
 
 
-func _on_cam_ctl(node) -> void:
+func _on_ctrl_cam(node) -> void:
 	follow_btn.text = "Unfollow" if vehicle == node else "Follow"
 
 
 func _on_follow() -> void:
-	if cam_ctl.locked == vehicle:
-		cam_ctl.free_cam()
+	if ctrl_cam.locked == vehicle:
+		ctrl_cam.free_cam()
 	else:
-		cam_ctl.lock_cam(vehicle)
+		ctrl_cam.lock_cam(vehicle)
 
 
 func _on_reset_pos() -> void:
