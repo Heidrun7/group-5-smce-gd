@@ -1,7 +1,7 @@
 // Derived from https://www.shadertoy.com/view/4s2GRR#
 // Adds a fisheye-effect to the images
 
-shader_type canvas_item;
+shader_type canvas_item; // Shader is a 2d shader
 const float PI = 3.1415926535;
 uniform vec2 resolution = vec2(640,480);
 uniform float factor = 0;
