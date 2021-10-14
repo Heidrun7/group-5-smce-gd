@@ -5,7 +5,7 @@
 | T3 | Group Meetings| S | Were efficient and worked well in most cases. Did take many hours. |
 | T4 | Supervision | S | Short meetings with TA. |
 | T5 | Documentation: All documentation regarding the project, mainly for understanding the project better or explaining it better to future users. </br> Commenting files to explain functionality of classes and increase both readability and maintainability. | M | Creating a new read me INSTALLATION GUIDE both for Windows and Mac. </br> Commenting many files created in godot, did take a lot of background research because of lack of godot experience. |
-| T6 | Fix duplicated code in BoardView.cpp | S | 2 files modified. </br> +17 LOC -40 LOC |
+| T6 | With help of sonarcloud we managed to find duplicated code in BoardView.cpp. The duplicated code was extracted from four different functions and added to a new function (which all of those four old functions then calling). | S | 2 files modified. </br> The task was needed since it is unncessecary with code duplication. The task was a small since sonarcloud helped us to find the duplication and it wasn't the largest of them, however we had to do all the extraction by ourselves and learn/understand the file/functions.|
 | T7 | Administrative | S | Small tasks related to the project such as setting up the git repo. Mainly simple tasks. |
 | T8 | Research: Mainly on Godot and C++ to be able to work with the SMCE framework. | M | Everyone took sufficient amount of time before being able to start on tasks, getting to know the framework and how to work with it. |
 | T9| Stakeholder Communication | S | Through text in very usefull discussions on Discord. |
