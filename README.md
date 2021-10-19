@@ -14,8 +14,8 @@ Initially created to emulate cars supporting the [smartcar_shield](https://githu
 
 1. **Setup** (follow the setup for: [Windows](https://github.com/ItJustWorksTM/smce-gd/wiki/Windows-setup) / [MacOS](https://github.com/ItJustWorksTM/smce-gd/wiki/MacOS-setup) / [Debian-based GNU/Linux](https://github.com/ItJustWorksTM/smce-gd/wiki/Debian-based-Linux-setup))
 2. [libSMCE Releases](https://github.com/ItJustWorksTM/libSMCE/releases) (extract/install the artifact for your OS, Windows users should download the _Release_ version)
-3. Set the env var `SMCE_ROOT` pointed to the root of the extracted _libSMCE directory_ (from step 2)
-   1. On Windows:
+3. Create the environment variable `SMCE_ROOT` pointing to the root of the extracted _libSMCE directory_ (from step 2)
+   1. On Windows: [See external guide](https://phoenixnap.com/kb/windows-set-environment-variable#ftoc-heading-4)
    2. On MacOS:
       1. Open Terminal window in the user's root directory
          `nano .bash_profile`

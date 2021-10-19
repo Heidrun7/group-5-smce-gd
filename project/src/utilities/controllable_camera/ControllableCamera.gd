@@ -15,12 +15,23 @@
 #  limitations under the License.
 #
 
-
+class_name ControllableCamera
 extends Spatial
 
 var rot_x = 0
 var rot_y = 0
 var lookaround_speed = 0.01
+
+#CamController Stuff
+signal cam_locked
+signal cam_freed
+
+var locked_cam: Spatial = null
+var free_cam: Spatial = null
+var interp_cam: Spatial = null
+
+var locked = null
+#Cam controller stuff ends
 
 export(int, 5, 100, 1) var scroll_limit_low = 5
 export(int, 5, 100, 1) var scroll_limit_high = 20
@@ -85,5 +96,38 @@ func _process(delta: float) -> void:
 	global_transform.origin = target.global_transform.origin + target.global_transform.basis.xform((Vector3.UP) * _zoom)
 	look_at(target.global_transform.origin, Vector3.UP)
 
+#cam controller stuff	
 
+func lock_cam(node: Spatial) -> void:
+	if ! is_instance_valid(node) || ! node.is_inside_tree():
+		return
+	interp_cam.set_target(locked_cam)
+	locked_cam.set_target(node)
+	free_cam.set_disabled(true)
+	emit_signal("cam_locked", node)
+	locked = node
+	if ! node.is_connected("tree_exiting", self, "_on_free"):
+		node.connect("tree_exiting", self, "_on_free", [node])
+
+
+func free_cam() -> void:
+	interp_cam.set_target(free_cam)
+	free_cam.set_disabled(false)
+	free_cam.transform = locked_cam.transform
+	emit_signal("cam_freed")
+	if is_instance_valid(locked):
+		locked.disconnect("tree_exiting", self, "_on_free")
+	locked = null
+
+
+func set_cam_position(transform: Transform = Transform()) -> void:
+	free_cam()
+	locked_cam.global_transform = transform
+	free_cam.global_transform = transform
+	interp_cam.global_transform = transform
+
+
+func _on_free(node) -> void:
+	if node == locked:
+		free_cam()
 
