@@ -10,6 +10,8 @@
 | T8 | Research: Mainly on Godot and C++ to be able to work with the SMCE framework. | M | Everyone took sufficient amount of time before being able to start on tasks, getting to know the framework and how to work with it. |
 | T9| Stakeholder Communication | S | Through text in very usefull discussions on Discord. |
 | T10 | Milestone 2 Preperation. Creating and preparing presentation and class demo.  Creating Task List. | S | -  |
+| 11 |  |  | -  |
+| T12 | Bug fix, fix so that the camera values are as they were before refactoring interpolated camera | S | Just a copy and paste jobb  |
 
 
 | Name |Task ID|  Contribution in % | 
@@ -18,7 +20,7 @@
 |Birgitta Feldis Bjarkadottir  | T1 </br> T2 </br> T3 </br> T4 </br> T7 </br> T8 </br> T9 </br> T10| 30% </br> 70% </br> 16.6% </br> 16.6% </br> 15% </br> 16.6% </br> 50% </br> 33%
 |Heidrun Valdis Heidarsdottir  |T3 </br> T4 </br> T5 </br> T7 </br> T8 </br>|16.6% </br> 16.6% </br> 25% </br> 20% </br> 16.6% 
 |Henrik Lagergren  | T3 </br> T4 </br> T5 </br> T6 </br> T7 </br> T8 </br> |16.6% </br> 16.6% </br> 25% </br> 100% </br> 15% </br> 16.6% 
-|Johannes Gustavsson  | T1 </br> T2 </br> T3 </br> T4 </br> T7 </br> T8 </br> T9 </br> T10| 70% </br> 30% </br> 16.6% </br> 16.6% </br> 15% </br> 16.6% </br> 50% </br> 33%
+|Johannes Gustavsson  | T1 </br> T2 </br> T3 </br> T4 </br> T7 </br> T8 </br> T9 </br> T10 </br> T12| 70% </br> 30% </br> 16.6% </br> 16.6% </br> 15% </br> 16.6% </br> 50% </br> 33% </br> 100%
 |Pontus Lindblom  | T3 </br> T4 </br> T5 </br> T7 </br> T8 </br> T10 |16.6% </br> 16.6% </br> 25% </br> 20% </br> 16.6% </br> 33%
 
     
