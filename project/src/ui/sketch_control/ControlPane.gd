@@ -15,6 +15,8 @@
 #  limitations under the License.
 #
 
+# Comment about this class
+
 extends VBoxContainer
 
 var notification_t = preload("res://src/ui/simple_notification/SimpleNotification.tscn")
@@ -54,10 +56,11 @@ var ctrl_cam: ControllableCamera = null setget set_ctrl_cam
 
 var vehicle = null
 
+
+# Comment 1
 func init(sketch: Sketch, toolchain: Toolchain):
 	
 	sketch_path = sketch.get_source()
-	
 	
 	var board_config = BoardConfig.new()
 	var stock_config =  Util.read_json_file("res://share/config/smartcar_shield_board.json")
@@ -103,6 +106,7 @@ func init(sketch: Sketch, toolchain: Toolchain):
 	return GDResult.new()
 
 
+# Comment 2
 func _ready():
 	for sig in ["started", "suspended_resumed", "stopped", "cleaned"]:
 		_board.connect(sig, self, "_on_board_" + sig)
@@ -118,7 +122,6 @@ func _ready():
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
 	
-	
 	uart.set_uart(_board.uart())
 	file_path_header.text = " " + sketch_path.get_file().get_file()
 	
@@ -127,12 +130,12 @@ func _ready():
 	$Serial/Button.group = group
 	group._init()
 	
-	
 	_on_board_cleaned()
 	if _board.get_sketch().is_compiled():
 		_built()
 
 
+# Comment 3
 func _on_board_cleaned() -> void:
 	sketch_status.text = " Not Compiled" if ! _toolchain.is_building() else " Compiling..."
 	pause_btn.disabled = true
@@ -143,6 +146,7 @@ func _on_board_cleaned() -> void:
 	compile_btn.disabled = _toolchain.is_building()
 
 
+# Comment 4
 func _on_toolchain_building(sketch) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -155,6 +159,7 @@ func _on_toolchain_building(sketch) -> void:
 	_board.terminate()
 
 
+# Comment 5
 func _on_toolchain_built(sketch, result) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -167,6 +172,7 @@ func _on_toolchain_built(sketch, result) -> void:
 	_built()
 
 
+# Comment 6
 func _built():
 	start_btn.disabled = false
 	start_btn.text = "Start"
@@ -175,6 +181,7 @@ func _built():
 	sketch_status.text = " Compiled"
 
 
+# Comment 7
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
@@ -188,6 +195,7 @@ func _on_board_started() -> void:
 	follow_btn.disabled = false
 
 
+# Comment 8
 func _on_board_suspended_resumed(suspended: bool) -> void:
 	pause_btn.text = "Resume" if suspended else "Suspend"
 	
@@ -197,6 +205,7 @@ func _on_board_suspended_resumed(suspended: bool) -> void:
 		vehicle.unfreeze()
 
 
+# Comment 9
 func _on_board_stopped(exit_code: int) -> void:
 	var exit_str = str(exit_code)
 	if exit_code < 0:
@@ -220,6 +229,7 @@ func _on_board_stopped(exit_code: int) -> void:
 	vehicle.queue_free()
 
 
+# Comment 10
 func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	if ! ctl:
 		return
@@ -228,23 +238,28 @@ func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	ctrl_cam.connect("cam_freed", self, "_on_ctrl_cam", [null])
 
 
+# Comment 11
 func _on_board_log(part: String):
 	sketch_log.text += part
 
 
+# Comment 12
 func _on_compile() -> void:
 	if ! _toolchain.compile(_board.get_sketch()):
 		_create_notification("Failed to start compilation", 5)
 
 
+# Comment 13
 func _on_close() -> void:
 	queue_free()
 
 
+# Comment 14
 func _on_ctrl_cam(node) -> void:
 	follow_btn.text = "Unfollow" if vehicle == node else "Follow"
 
 
+# Comment 15
 func _on_follow() -> void:
 	if ctrl_cam.locked == vehicle:
 		ctrl_cam.free_cam()
@@ -252,6 +267,7 @@ func _on_follow() -> void:
 		ctrl_cam.lock_cam(vehicle)
 
 
+# Comment 16
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
@@ -265,6 +281,7 @@ func _on_start() -> void:
 	Util.print_if_err(_board.start())
 
 
+# Comment 17
 func _on_pause() -> void:
 	if _board.status() == SMCE.Status.RUNNING:
 		Util.print_if_err(_board.suspend())
@@ -272,6 +289,7 @@ func _on_pause() -> void:
 		Util.print_if_err(_board.resume())
 
 
+# Comment 18
 func _create_notification(text: String, timeout: float = -1, progress: bool = false, button: bool = false) -> Control:
 	var notification: Control = notification_t.instance().setup(self, text, timeout, progress, button)
 	
@@ -281,6 +299,7 @@ func _create_notification(text: String, timeout: float = -1, progress: bool = fa
 	return notification
 
 
+# Comment 19
 var compile_log_text_field = null
 func _show_compile_log() -> void:
 	var window = preload("res://src/ui/sketch_control/LogPopout.tscn").instance()
@@ -291,13 +310,14 @@ func _show_compile_log() -> void:
 	compile_log_text_field.text = _toolchain.get_log()
 
 
+# Comment 20
 func _on_toolchain_log(text) -> void:
 	if is_instance_valid(compile_log_text_field):
 		compile_log_text_field.text += text
 
 
+# Comment 21
 func _create_vehicle() -> void:
-	
 	var stock_config = Util.read_json_file("res://share/config/smartcar_shield_vehicle.json")
 	var json_config = Util.read_json_file(sketch_path.get_base_dir().plus_file("vehicle_config.json"))
 	
@@ -356,6 +376,7 @@ func _create_vehicle() -> void:
 	reset_vehicle_pos()
 
 
+# Comment 22
 func _setup_attachments() -> void:
 	attachments_empty.visible = vehicle.attachments.empty()
 	for attachment in vehicle.attachments:
@@ -367,6 +388,7 @@ func _setup_attachments() -> void:
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
 
+# Comment 23
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
@@ -378,6 +400,7 @@ func reset_vehicle_pos() -> void:
 		vehicle.unfreeze()
 
 
+# Comment 24
 func _notification(what):
 	if what == NOTIFICATION_PREDELETE && is_instance_valid(compile_log_text_field):
 		compile_log_text_field.queue_free()
