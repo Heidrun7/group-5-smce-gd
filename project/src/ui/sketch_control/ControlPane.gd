@@ -205,7 +205,7 @@ func _on_board_suspended_resumed(suspended: bool) -> void:
 		vehicle.unfreeze()
 
 
-# Comment 9
+# If the sketch gets an error, it creates a notification with the exit code and also stops the sketch.
 func _on_board_stopped(exit_code: int) -> void:
 	var exit_str = str(exit_code)
 	if exit_code < 0:
@@ -229,7 +229,7 @@ func _on_board_stopped(exit_code: int) -> void:
 	vehicle.queue_free()
 
 
-# Comment 10
+# Follows or unfollows the car with the camera
 func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	if ! ctl:
 		return
@@ -243,7 +243,7 @@ func _on_board_log(part: String):
 	sketch_log.text += part
 
 
-# Comment 12
+# If the sketch does not compile, it sends a notification of that to the user
 func _on_compile() -> void:
 	if ! _toolchain.compile(_board.get_sketch()):
 		_create_notification("Failed to start compilation", 5)
@@ -376,7 +376,7 @@ func _create_vehicle() -> void:
 	reset_vehicle_pos()
 
 
-# Comment 22
+# Adds the vehicle attachments, if there are any
 func _setup_attachments() -> void:
 	attachments_empty.visible = vehicle.attachments.empty()
 	for attachment in vehicle.attachments:
