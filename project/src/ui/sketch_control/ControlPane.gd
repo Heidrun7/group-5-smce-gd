@@ -15,8 +15,6 @@
 #  limitations under the License.
 #
 
-# Comment about this class
-
 extends VBoxContainer
 
 var notification_t = preload("res://src/ui/simple_notification/SimpleNotification.tscn")
@@ -135,7 +133,8 @@ func _ready():
 		_built()
 
 
-# Comment 3
+# Disables Board and Vehicle buttons when sketch is compiling and display compiling status
+# Displays if sketch is compiling or is comliled
 func _on_board_cleaned() -> void:
 	sketch_status.text = " Not Compiled" if ! _toolchain.is_building() else " Compiling..."
 	pause_btn.disabled = true
@@ -159,7 +158,9 @@ func _on_toolchain_building(sketch) -> void:
 	_board.terminate()
 
 
-# Comment 5
+# Enable the "Compile"-button 
+# If sketch is NOT compiled, display "Not compiled"
+# If sketch is compiled, call built()
 func _on_toolchain_built(sketch, result) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -172,7 +173,7 @@ func _on_toolchain_built(sketch, result) -> void:
 	_built()
 
 
-# Comment 6
+# Enables the "Start"-button and displays "Compiled"
 func _built():
 	start_btn.disabled = false
 	start_btn.text = "Start"
@@ -289,7 +290,6 @@ func _on_pause() -> void:
 		Util.print_if_err(_board.resume())
 
 
-# Comment 18
 func _create_notification(text: String, timeout: float = -1, progress: bool = false, button: bool = false) -> Control:
 	var notification: Control = notification_t.instance().setup(self, text, timeout, progress, button)
 	
