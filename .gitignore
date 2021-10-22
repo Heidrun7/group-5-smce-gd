@@ -28,4 +28,11 @@ data_*/
 # Build
 build
 
+# Visual studio
+*.code-workspace
+
+# Import and material files
+*.import
+*.material
+
 #  https://www.toptal.com/developers/gitignore/api/godot
