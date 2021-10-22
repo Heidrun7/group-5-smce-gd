@@ -55,7 +55,6 @@ var ctrl_cam: ControllableCamera = null setget set_ctrl_cam
 var vehicle = null
 
 
-# Comment 1
 func init(sketch: Sketch, toolchain: Toolchain):
 	
 	sketch_path = sketch.get_source()
@@ -104,7 +103,6 @@ func init(sketch: Sketch, toolchain: Toolchain):
 	return GDResult.new()
 
 
-# Comment 2
 func _ready():
 	for sig in ["started", "suspended_resumed", "stopped", "cleaned"]:
 		_board.connect(sig, self, "_on_board_" + sig)
@@ -145,7 +143,7 @@ func _on_board_cleaned() -> void:
 	compile_btn.disabled = _toolchain.is_building()
 
 
-# Comment 4
+# If sketch is compiling, disable Compile & Start-buttons and display "Compiling..."
 func _on_toolchain_building(sketch) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -182,7 +180,7 @@ func _built():
 	sketch_status.text = " Compiled"
 
 
-# Comment 7
+# When Start-button is pressed, create vehicle and enable Vehicle and Board buttons
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
@@ -196,7 +194,8 @@ func _on_board_started() -> void:
 	follow_btn.disabled = false
 
 
-# Comment 8
+# If Resume-button is pressed, unfreeze vehicle
+# If Suspend-button is pressed, freeze vehicle
 func _on_board_suspended_resumed(suspended: bool) -> void:
 	pause_btn.text = "Resume" if suspended else "Suspend"
 	
@@ -239,7 +238,6 @@ func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	ctrl_cam.connect("cam_freed", self, "_on_ctrl_cam", [null])
 
 
-# Comment 11
 func _on_board_log(part: String):
 	sketch_log.text += part
 
@@ -250,17 +248,17 @@ func _on_compile() -> void:
 		_create_notification("Failed to start compilation", 5)
 
 
-# Comment 13
 func _on_close() -> void:
 	queue_free()
 
 
-# Comment 14
+# Change button text to Unfollow and Follow
 func _on_ctrl_cam(node) -> void:
 	follow_btn.text = "Unfollow" if vehicle == node else "Follow"
 
 
-# Comment 15
+# If Follow-button is pressed, lock camera to vehicle
+# If Unfollow-button is pressed, release camera from vehicle
 func _on_follow() -> void:
 	if ctrl_cam.locked == vehicle:
 		ctrl_cam.free_cam()
@@ -268,7 +266,7 @@ func _on_follow() -> void:
 		ctrl_cam.lock_cam(vehicle)
 
 
-# Comment 16
+# Resets vehicle position
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
@@ -282,7 +280,6 @@ func _on_start() -> void:
 	Util.print_if_err(_board.start())
 
 
-# Comment 17
 func _on_pause() -> void:
 	if _board.status() == SMCE.Status.RUNNING:
 		Util.print_if_err(_board.suspend())
@@ -299,7 +296,6 @@ func _create_notification(text: String, timeout: float = -1, progress: bool = fa
 	return notification
 
 
-# Comment 19
 var compile_log_text_field = null
 func _show_compile_log() -> void:
 	var window = preload("res://src/ui/sketch_control/LogPopout.tscn").instance()
@@ -310,13 +306,11 @@ func _show_compile_log() -> void:
 	compile_log_text_field.text = _toolchain.get_log()
 
 
-# Comment 20
 func _on_toolchain_log(text) -> void:
 	if is_instance_valid(compile_log_text_field):
 		compile_log_text_field.text += text
 
 
-# Comment 21
 func _create_vehicle() -> void:
 	var stock_config = Util.read_json_file("res://share/config/smartcar_shield_vehicle.json")
 	var json_config = Util.read_json_file(sketch_path.get_base_dir().plus_file("vehicle_config.json"))
@@ -388,7 +382,6 @@ func _setup_attachments() -> void:
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
 
-# Comment 23
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
@@ -400,7 +393,6 @@ func reset_vehicle_pos() -> void:
 		vehicle.unfreeze()
 
 
-# Comment 24
 func _notification(what):
 	if what == NOTIFICATION_PREDELETE && is_instance_valid(compile_log_text_field):
 		compile_log_text_field.queue_free()
