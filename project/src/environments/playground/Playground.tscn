@@ -99,3 +99,7 @@ shape = SubResource( 9 )
 
 [node name="CamPosition" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.895176, 0.445714, 0, -0.445714, 0.895176, 0, 20.7107, 29.5113 )
+
+[node name="VehicleSpawnPosition" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 15, 15 )
+visible = false

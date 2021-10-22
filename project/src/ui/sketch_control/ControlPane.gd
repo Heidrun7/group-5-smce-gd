@@ -372,7 +372,14 @@ func reset_vehicle_pos() -> void:
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = Vector3(0,3,0)
+	
+	# Can break if tree is changed
+	var customSpawnPosition = get_node("/root/Master/World/Spatial/VehicleSpawnPosition")
+	if customSpawnPosition:
+		vehicle.global_transform.origin = customSpawnPosition.global_transform.origin
+	else:
+		vehicle.global_transform.origin = Vector3(0,3,0)
+	
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()
