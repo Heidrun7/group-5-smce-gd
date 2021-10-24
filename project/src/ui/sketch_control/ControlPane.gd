@@ -43,10 +43,9 @@ onready var attachments = $Scroll/Attachments
 onready var attachments_empty = $Scroll/Attachments/empty
 
 onready var log_box = $Log
-
+onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
-onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 
 var sketch_path: String = ""
 
@@ -56,7 +55,6 @@ var vehicle = null
 
 
 func init(sketch: Sketch, toolchain: Toolchain):
-	
 	sketch_path = sketch.get_source()
 	
 	var board_config = BoardConfig.new()
@@ -143,7 +141,7 @@ func _on_board_cleaned() -> void:
 	compile_btn.disabled = _toolchain.is_building()
 
 
-# If sketch is compiling, disable Compile & Start-buttons and display "Compiling..."
+# If sketch is compiling, disable "Compile" & "Start"-buttons and display "Compiling..."
 func _on_toolchain_building(sketch) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -180,7 +178,7 @@ func _built():
 	sketch_status.text = " Compiled"
 
 
-# When Start-button is pressed, create vehicle and enable Vehicle and Board buttons
+# When "Start"-button is pressed, create vehicle and enable Vehicle and Board buttons
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
@@ -194,8 +192,8 @@ func _on_board_started() -> void:
 	follow_btn.disabled = false
 
 
-# If Resume-button is pressed, unfreeze vehicle
-# If Suspend-button is pressed, freeze vehicle
+# If "Resume"-button is pressed, unfreeze vehicle
+# If "Suspend"-button is pressed, freeze vehicle
 func _on_board_suspended_resumed(suspended: bool) -> void:
 	pause_btn.text = "Resume" if suspended else "Suspend"
 	
@@ -257,8 +255,8 @@ func _on_ctrl_cam(node) -> void:
 	follow_btn.text = "Unfollow" if vehicle == node else "Follow"
 
 
-# If Follow-button is pressed, lock camera to vehicle
-# If Unfollow-button is pressed, release camera from vehicle
+# If "Follow"-button is pressed, lock camera to vehicle
+# If "Unfollow"-button is pressed, release camera from vehicle
 func _on_follow() -> void:
 	if ctrl_cam.locked == vehicle:
 		ctrl_cam.free_cam()
@@ -266,7 +264,7 @@ func _on_follow() -> void:
 		ctrl_cam.lock_cam(vehicle)
 
 
-# Resets vehicle position
+# When "Reset pos"-button is pressed, call reset_vehicle_pos()
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
@@ -382,6 +380,7 @@ func _setup_attachments() -> void:
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
 
+# Teleports vehicle to its spawning position
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
