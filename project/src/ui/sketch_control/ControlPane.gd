@@ -43,10 +43,9 @@ onready var attachments = $Scroll/Attachments
 onready var attachments_empty = $Scroll/Attachments/empty
 
 onready var log_box = $Log
-
+onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
-onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 
 var sketch_path: String = ""
 
@@ -54,10 +53,9 @@ var ctrl_cam: ControllableCamera = null setget set_ctrl_cam
 
 var vehicle = null
 
+
 func init(sketch: Sketch, toolchain: Toolchain):
-	
 	sketch_path = sketch.get_source()
-	
 	
 	var board_config = BoardConfig.new()
 	var stock_config =  Util.read_json_file("res://share/config/smartcar_shield_board.json")
@@ -118,7 +116,6 @@ func _ready():
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
 	
-	
 	uart.set_uart(_board.uart())
 	file_path_header.text = " " + sketch_path.get_file().get_file()
 	
@@ -127,12 +124,13 @@ func _ready():
 	$Serial/Button.group = group
 	group._init()
 	
-	
 	_on_board_cleaned()
 	if _board.get_sketch().is_compiled():
 		_built()
 
 
+# Disables Board and Vehicle buttons when sketch is compiling and display compiling status
+# Displays if sketch is compiling or is comliled
 func _on_board_cleaned() -> void:
 	sketch_status.text = " Not Compiled" if ! _toolchain.is_building() else " Compiling..."
 	pause_btn.disabled = true
@@ -143,6 +141,7 @@ func _on_board_cleaned() -> void:
 	compile_btn.disabled = _toolchain.is_building()
 
 
+# If sketch is compiling, disable "Compile" & "Start"-buttons and display "Compiling..."
 func _on_toolchain_building(sketch) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -155,6 +154,9 @@ func _on_toolchain_building(sketch) -> void:
 	_board.terminate()
 
 
+# Enable the "Compile"-button 
+# If sketch is NOT compiled, display "Not compiled"
+# If sketch is compiled, call built()
 func _on_toolchain_built(sketch, result) -> void:
 	if sketch != _board.get_sketch():
 		return
@@ -167,6 +169,7 @@ func _on_toolchain_built(sketch, result) -> void:
 	_built()
 
 
+# Enables the "Start"-button and displays "Compiled"
 func _built():
 	start_btn.disabled = false
 	start_btn.text = "Start"
@@ -175,6 +178,7 @@ func _built():
 	sketch_status.text = " Compiled"
 
 
+# When "Start"-button is pressed, create vehicle and enable Vehicle and Board buttons
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
@@ -188,6 +192,8 @@ func _on_board_started() -> void:
 	follow_btn.disabled = false
 
 
+# If "Resume"-button is pressed, unfreeze vehicle
+# If "Suspend"-button is pressed, freeze vehicle
 func _on_board_suspended_resumed(suspended: bool) -> void:
 	pause_btn.text = "Resume" if suspended else "Suspend"
 	
@@ -197,6 +203,7 @@ func _on_board_suspended_resumed(suspended: bool) -> void:
 		vehicle.unfreeze()
 
 
+# If the sketch gets an error, it creates a notification with the exit code and also stops the sketch.
 func _on_board_stopped(exit_code: int) -> void:
 	var exit_str = str(exit_code)
 	if exit_code < 0:
@@ -220,6 +227,7 @@ func _on_board_stopped(exit_code: int) -> void:
 	vehicle.queue_free()
 
 
+# Follows or unfollows the car with the camera
 func set_ctrl_cam(ctl: ControllableCamera) -> void:
 	if ! ctl:
 		return
@@ -232,6 +240,7 @@ func _on_board_log(part: String):
 	sketch_log.text += part
 
 
+# If the sketch does not compile, it sends a notification of that to the user
 func _on_compile() -> void:
 	if ! _toolchain.compile(_board.get_sketch()):
 		_create_notification("Failed to start compilation", 5)
@@ -241,10 +250,13 @@ func _on_close() -> void:
 	queue_free()
 
 
+# Change button text to Unfollow and Follow
 func _on_ctrl_cam(node) -> void:
 	follow_btn.text = "Unfollow" if vehicle == node else "Follow"
 
 
+# If "Follow"-button is pressed, lock camera to vehicle
+# If "Unfollow"-button is pressed, release camera from vehicle
 func _on_follow() -> void:
 	if ctrl_cam.locked == vehicle:
 		ctrl_cam.free_cam()
@@ -252,6 +264,7 @@ func _on_follow() -> void:
 		ctrl_cam.lock_cam(vehicle)
 
 
+# When "Reset pos"-button is pressed, call reset_vehicle_pos()
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
@@ -297,7 +310,6 @@ func _on_toolchain_log(text) -> void:
 
 
 func _create_vehicle() -> void:
-	
 	var stock_config = Util.read_json_file("res://share/config/smartcar_shield_vehicle.json")
 	var json_config = Util.read_json_file(sketch_path.get_base_dir().plus_file("vehicle_config.json"))
 	
@@ -356,6 +368,7 @@ func _create_vehicle() -> void:
 	reset_vehicle_pos()
 
 
+# Adds the vehicle attachments, if there are any
 func _setup_attachments() -> void:
 	attachments_empty.visible = vehicle.attachments.empty()
 	for attachment in vehicle.attachments:
@@ -367,6 +380,7 @@ func _setup_attachments() -> void:
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
 
+# Teleports vehicle to its spawning position
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
