@@ -181,7 +181,6 @@ func _built():
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
-
 	
 	sketch_log.text = ""
 	uart.console.text = ""	
@@ -387,14 +386,16 @@ func reset_vehicle_pos() -> void:
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
 	
-	# Can break if tree is changed
-	var customSpawnPosition = get_node("/root/Master/World/Spatial/VehicleSpawnPosition")
-	if customSpawnPosition:
-		vehicle.global_transform.origin = customSpawnPosition.global_transform.origin
+	#var spawn_node = get_node("/root/Master/World/Spatial/VehicleSpawnPosition") # OLD SOLUTION
+	var world_instance = Global.environments.get("playground/Playground").instance()
+	var spawn_node = world_instance.get_node("VehicleSpawnPosition")
+	if spawn_node:
+		vehicle.global_transform.origin = spawn_node.transform.origin
 	else:
 		vehicle.global_transform.origin = Vector3(0,3,0)
 	
 	vehicle.global_transform.basis = Basis()
+	
 	if ! was_frozen:
 		vehicle.unfreeze()
 
