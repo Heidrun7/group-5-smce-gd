@@ -182,7 +182,7 @@ func _built():
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
-	vehicle.unfreeze()
+
 	
 	sketch_log.text = ""
 	uart.console.text = ""	
@@ -366,6 +366,7 @@ func _create_vehicle() -> void:
 	
 	_setup_attachments()
 	reset_vehicle_pos()
+	vehicle.unfreeze()
 
 
 # Adds the vehicle attachments, if there are any
