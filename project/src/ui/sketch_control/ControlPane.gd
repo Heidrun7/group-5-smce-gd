@@ -133,7 +133,6 @@ func _ready():
 # Displays if sketch is compiling or is comliled
 func _on_board_cleaned() -> void:
 	sketch_status.text = " Not Compiled" if ! _toolchain.is_building() else " Compiling..."
-	pause_btn.disabled = true
 	start_btn.disabled = true
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
