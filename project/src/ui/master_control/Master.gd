@@ -24,12 +24,12 @@ onready var profile_select = $ProfileSelect
 onready var hud_attach = $HUD
 onready var hud = null
 onready var screen_cover = $ScreenCover
-
-var profile_manager = ProfileManager.new()
 onready var sketch_manager = $SketchManager
 
+var profile_manager = ProfileManager.new()
 var orig_profile: ProfileConfig = null
 var active_profile: ProfileConfig = null
+
 
 #Function that making the GUI ready for picking a profile.
 func _ready() -> void:
@@ -38,6 +38,7 @@ func _ready() -> void:
 	profile_manager.load_profiles()
 	
 	show_profile_select()
+
 
 #Function reacting on different inputs from the GUI.
 func _input(event: InputEvent):
@@ -48,6 +49,7 @@ func _input(event: InputEvent):
 			load_profile(active_profile)
 		if event.is_action_pressed("ui_cancel"):
 			show_profile_select()
+
 
 #Creates a fading cubic transition for 0,3 seconds.
 #The animation can go reversed depending on the "bruh"-bool.
@@ -68,8 +70,9 @@ func fade_cover(bruh: bool):
 	
 	screen_cover.visible = bruh
 
+
 #Function to go back to the "select your profile" screen.
-# It appears with a 0,4 seconds animation.
+#It appears with a 0,4 seconds animation.
 func show_profile_select() -> void:
 	yield(unload_profile(),"completed")
 	yield(get_tree(), "idle_frame")
@@ -83,6 +86,7 @@ func show_profile_select() -> void:
 	tween.interpolate_property(profile_select, "modulate:a", 0, 1, 0.4, Tween.TRANS_CUBIC)
 	tween.interpolate_property(profile_select, "rect_scale", Vector2(10,10), Vector2(1,1), 0.4, Tween.TRANS_CUBIC)
 	tween.start()
+
 
 #Function when a profile is being selected
 #The profile is loaded and an animation from the screen is showed.
@@ -104,9 +108,11 @@ func _on_profile_selected(profile: ProfileConfig) -> void:
 	yield(tween, "tween_all_completed")
 	profile_select.visible = false
 
+
 #Reload the current profile.
 func reload_profile() -> void:
 	load_profile(orig_profile)
+
 
 #Removes the current profile and cleares the world.
 func unload_profile() -> void:
@@ -118,6 +124,7 @@ func unload_profile() -> void:
 	if is_instance_valid(hud):
 		hud.queue_free()
 	world.clear_world()
+
 
 #Loads a new profile by unloading a potentially active profile,
 #set the environment and adds the profile as active.
@@ -141,7 +148,6 @@ func load_profile(profile: ProfileConfig) -> void:
 		orig_profile = profile
 		active_profile = Util.duplicate_ref(profile)
 	
-	
 	hud = hud_t.instance()
 	hud.ctrl_cam = world.ctrl_cam
 	hud.profile = active_profile
@@ -149,8 +155,6 @@ func load_profile(profile: ProfileConfig) -> void:
 	hud.master_manager = self
 	hud.world = world
 	hud_attach.add_child(hud)
-	
 	hud.add_slots(profile.slots)
 	
 	fade_cover(false)
-
