@@ -35,7 +35,6 @@ onready var profile_screen_toggle = $ProfileScreentoggle
 
 var button_group: BButtonGroup = BButtonGroup.new()
 
-
 var buttons: Array = []
 var paths: Dictionary = {}
 
@@ -46,6 +45,7 @@ var master_manager = null
 var world = null
 
 var disabled = false setget set_disabled
+
 
 func set_disabled(val: bool = disabled) -> void:
 	disabled = val
@@ -119,7 +119,6 @@ func _create_sketch_pane(sketch):
 	var pane = control_pane_t.instance()
 	pane.world = world
 	var toolchain = sketch_manager.get_toolchain(sketch)
-	
 	
 	if ! toolchain.is_connected("building", self, "_on_toolchain_building"):
 		toolchain.connect("building", self, "_on_toolchain_building", [toolchain])
@@ -255,6 +254,4 @@ func add_slots(slots: Array) -> void:
 			continue
 		_add_pane(pane, _new_slot())
 		
-	
 	set_disabled(false)
-
