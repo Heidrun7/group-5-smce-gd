@@ -21,6 +21,7 @@ var world_name = null
 var world: Spatial = null
 
 var debug_car: Spatial = null
+var vehicle_spawn_pos = null
 
 onready var ctrl_cam: ControllableCamera = $Camera
 
@@ -66,6 +67,11 @@ func load_world(scene: PackedScene) -> bool:
 			ctrl_cam.set_cam_position(world.init_cam_pos())
 		else:
 			ctrl_cam.set_cam_position()
+			
+		if world.has_method("init_vehicle_pos"):
+			vehicle_spawn_pos = world.init_vehicle_pos()
+		else:
+			vehicle_spawn_pos = Vector3(0,3,0)
 		
 		return true
 	return false

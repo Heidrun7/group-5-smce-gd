@@ -25,6 +25,7 @@ signal grab_focus
 
 var _toolchain: Toolchain = null
 var _board = null
+var world = null
 
 onready var compile_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Compile
 onready var compile_log_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/CompileLog
@@ -386,14 +387,7 @@ func reset_vehicle_pos() -> void:
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
 	
-	#var spawn_node = get_node("/root/Master/World/Spatial/VehicleSpawnPosition") # OLD SOLUTION
-	var world_instance = Global.environments.get("playground/Playground").instance()
-	var spawn_node = world_instance.get_node("VehicleSpawnPosition")
-	if spawn_node:
-		vehicle.global_transform.origin = spawn_node.transform.origin
-	else:
-		vehicle.global_transform.origin = Vector3(0,3,0)
-	
+	vehicle.global_transform.origin = world.vehicle_spawn_pos
 	vehicle.global_transform.basis = Basis()
 	
 	if ! was_frozen:

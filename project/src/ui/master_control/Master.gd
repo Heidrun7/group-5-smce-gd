@@ -147,6 +147,7 @@ func load_profile(profile: ProfileConfig) -> void:
 	hud.profile = active_profile
 	hud.sketch_manager = sketch_manager
 	hud.master_manager = self
+	hud.world = world
 	hud_attach.add_child(hud)
 	
 	hud.add_slots(profile.slots)

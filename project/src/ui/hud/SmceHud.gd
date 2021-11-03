@@ -43,6 +43,7 @@ var ctrl_cam: ControllableCamera = null
 var profile = null
 var sketch_manager: SketchManager = null
 var master_manager = null
+var world = null
 
 var disabled = false setget set_disabled
 
@@ -115,8 +116,8 @@ func _on_sketch_btn() -> void:
 
 
 func _create_sketch_pane(sketch):
-	
 	var pane = control_pane_t.instance()
+	pane.world = world
 	var toolchain = sketch_manager.get_toolchain(sketch)
 	
 	
