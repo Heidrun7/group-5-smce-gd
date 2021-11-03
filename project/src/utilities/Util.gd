@@ -17,6 +17,9 @@
 
 class_name Util
 
+# Function to check the dir path from base location
+# Ensures all dir is related to current file name
+# Checks all the dir
 static func copy_dir(path: String, to: String, base = null) -> bool:
 	if ! base:
 		base = path
@@ -42,7 +45,9 @@ static func copy_dir(path: String, to: String, base = null) -> bool:
 
 	return true
 
-
+# Function to read JSON file path
+# Checks path is valid or not
+# Checks the correct config 
 static func read_json_file(path):
 	var config = File.new()
 	if config.open(path, File.READ) != OK:
@@ -56,13 +61,13 @@ static func read_json_file(path):
 
 	return ret.result
 
-
+# Setting customed error message
 static func err(msg: String):
 	var ret = GDResult.new()
 	ret.set_error(msg)
 	return ret
 
-
+# Prints error encountered
 static func print_if_err(err):
 	if ! err.ok():
 		print(err.error())
@@ -70,7 +75,9 @@ static func print_if_err(err):
 
 class EmptyRef:
 	pass
-
+# Function to check default props 
+# Create arrays starting with empty references
+# return names of property list array
 static func get_ref_props() -> Array:
 	var default_props = EmptyRef.new().get_property_list()
 	var names = []
@@ -79,6 +86,9 @@ static func get_ref_props() -> Array:
 	return names
 
 
+# Function to check Custom props 
+# Create arrays starting with empty references
+# return names of property list array
 static func get_custom_pops(ref) -> Array:
 	var default_props = get_ref_props()
 	
@@ -158,7 +168,7 @@ static func cond_yield(ref):
 		yield(Engine.get_main_loop(), "idle_frame")
 	return ret
 
-
+# Function creates directory and loads path
 static func mkdir(path, recursive: bool = false) -> bool:
 	var dir: Directory = Directory.new()
 	if dir.dir_exists(path):
@@ -187,7 +197,7 @@ static func ls(path: String) -> Array:
 	
 	return ret
 
-
+# Checks duplicate references
 static func duplicate_ref(orig):
 	var new = orig.get_script().new()
 	
@@ -200,7 +210,7 @@ static func merge_dict_shallow(target, new) -> void:
 	for key in new:
 		target[key] = new[key]
 
-
+# Setting object values
 static func set_props(object: Object, props: Dictionary) -> void:
 	for prop in props:
 		var val = props[prop]
