@@ -19,7 +19,7 @@
 | Asad Maraj                   |         |                   |
 | Birgitta Feldis Bjarkadottir |         |                   |
 | Heidrun Valdis Heidarsdottir | T3 </br> T4 </br> T7 </br> T9 </br> T10 </br> T11 | ?16.6% </br> ?16.6% </br> ? </br> 20% </br> 5% </br> ?25%       |
-| Henrik Lagergren             |         |                   |
+| Henrik Lagergren             | T3 </br> T4 </br> T8 </br> T9 </br> T11 | 16.6% </br> 16.6% </br> 16.6% </br> 20% </br> 25%                      |
 | Johannes Gustavsson          |         |                   |
 | Pontus Lindblom              |         |                   |
 
