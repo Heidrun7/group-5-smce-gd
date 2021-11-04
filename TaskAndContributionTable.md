@@ -11,7 +11,7 @@
 | T10 | Milestone 3 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
 | T11 | Increase test coverage of libSMCE | M | Added tests to test/Board.cpp and set up the code analysis tools Sonarcloud and Codecov |
 | T12 | Bug fix, fix so that the camera values are as they were before refactoring interpolated camera | S | Just a copy and paste jobb |
-| T13 | Implement a way for environments to describe where the vehicle should be spawned. | | |
+| T13 | Implement a way for environments to describe where the vehicle should be spawned. | M | Finding a solution that did not take to much time and satiesfied the customer was a bit tricky |
 
 
 | Name                         | Task ID | Contribution in % |
@@ -20,7 +20,7 @@
 | Birgitta Feldis Bjarkadottir |         |                   |
 | Heidrun Valdis Heidarsdottir | T3 </br> T4 </br> T7 </br> T9 </br> T10 </br> T11 | ?16.6% </br> ?16.6% </br> ? </br> 20% </br> 5% </br> ?25%       |
 | Henrik Lagergren             | T3 </br> T4 </br> T8 </br> T9 </br> T11 | 16.6% </br> 16.6% </br> 16.6% </br> 20% </br> 25%                      |
-| Johannes Gustavsson          |         |                   |
+| Johannes Gustavsson          | T3 </br> T4 </br> T7 </br> T9 </br> T12 </br> T13 | 16.6% </br> 16.6% </br> 16.6% </br> 16.6% </br> 100% </br> 50% |
 | Pontus Lindblom              |         |                   |
 
 
