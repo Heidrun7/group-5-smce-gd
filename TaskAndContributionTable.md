@@ -9,9 +9,9 @@
 | T8 | Research: Mainly on Godot and C++ to be able to work with the SMCE framework. | M | Everyone took sufficient amount of time before being able to start on tasks, getting to know the framework and how to work with it. |
 | T9| Stakeholder Communication | S | |
 | T10 | Milestone 3 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
-| T11 | Increase test coverage of libSMCE | M | Added tests to test/Board.cpp and set up the code analysis tools Sonarcloud and Codecov |
-| T12 | Bug fix, fix so that the camera values are as they were before refactoring interpolated camera | S | Just a copy and paste jobb |
-| T13 | Implement a way for environments to describe where the vehicle should be spawned. | M | Finding a solution that did not take to much time and satiesfied the customer was a bit tricky |
+| T11 | Increase test coverage of libSMCE | M | Added tests to test/Board.cpp, test/BoardView.cpp and test/Toolchain.cpp and set up the code analysis tools Sonarcloud and Codecov |
+| T12 | Bug fix, fix so that the camera values are as they were before refactoring interpolated camera | S | Just a copy and paste job. |
+| T13 | Implement a way for environments to describe where the vehicle should be spawned. | M | Finding a solution that did not take too much time and satiesfies the customer was a bit tricky. |
 
 
 | Name                         | Task ID | Contribution in % |
