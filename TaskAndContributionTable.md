@@ -1,3 +1,26 @@
+# SPRINT 4
+
+| Task ID |Description| Complexity (small/medium/large) | Justification
+|:----------:|-------|:------:|------|
+| T3 | Group Meetings| S | Most often efficient and resulted in valuable content. Can take a lot of time but highly useful. |
+| T4 | Supervision | S | |
+| T5 | Documentation | M | |
+| T7 | Administrative || |
+| T8 | Research| ||
+| T9| Stakeholder Communication | S | |
+| T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
+| T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used.
+
+
+| Name                         | Task ID | Contribution in % |
+| ---------------------------- | :-----: | :---------------: |
+| Asad Maraj                   |T3 </br>  ||
+| Birgitta Feldis Bjarkadottir |T3 </br> T14 </br>||
+| Heidrun Valdis Heidarsdottir |T3 </br> T14 </br>||
+| Henrik Lagergren             |T3 </br> T14 </br>||
+| Johannes Gustavsson          |T3 </br> T14 </br>||
+| Pontus Lindblom              |T3 </br> T14 </br>||
+
 # SPRINT 3
 
 | Task ID |Description| Complexity (small/medium/large) | Justification
