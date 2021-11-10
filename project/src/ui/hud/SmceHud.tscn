@@ -65,7 +65,8 @@ VScrollBar/styles/scroll = SubResource( 10 )
 VScrollBar/styles/scroll_focus = SubResource( 11 )
 
 [node name="SmceHud" type="Control"]
-anchor_right = 1.0
+anchor_left = -0.000602579
+anchor_right = 0.999397
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = SubResource( 2 )
@@ -123,7 +124,7 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
 margin_top = 46.0
 margin_right = 48.0
-margin_bottom = 720.0
+margin_bottom = 674.0
 size_flags_vertical = 3
 theme = SubResource( 12 )
 follow_focus = true
@@ -131,7 +132,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
 margin_right = 48.0
-margin_bottom = 674.0
+margin_bottom = 628.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -153,6 +154,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainerHelp" type="PanelContainer" parent="Panel/VBoxContainer"]
+margin_top = 678.0
+margin_right = 48.0
+margin_bottom = 720.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainerHelp"]
+margin_right = 48.0
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpToggle" type="ToolButton" parent="Panel/VBoxContainer/MarginContainerHelp/VBoxContainer"]
+margin_right = 48.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 0, 41 )
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+custom_styles/focus = SubResource( 6 )
+text = "?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ProfileScreentoggle" type="ToolButton" parent="."]
 visible = false
 anchor_right = 1.0
@@ -162,6 +188,8 @@ __meta__ = {
 }
 
 [node name="ProfileControl" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.000602627
+anchor_right = 0.000602627
 margin_left = -320.0
 margin_right = -16.0
 
