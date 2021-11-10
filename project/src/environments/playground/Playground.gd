@@ -19,3 +19,6 @@ extends Spatial
 
 func init_cam_pos() -> Transform:
 	return $CamPosition.global_transform
+
+func init_vehicle_pos() -> Transform:
+	return $VehicleSpawnPosition.global_transform.origin

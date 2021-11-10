@@ -25,6 +25,7 @@ signal grab_focus
 
 var _toolchain: Toolchain = null
 var _board = null
+var world = null
 
 onready var compile_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Compile
 onready var compile_log_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/CompileLog
@@ -133,7 +134,6 @@ func _ready():
 # Displays if sketch is compiling or is comliled
 func _on_board_cleaned() -> void:
 	sketch_status.text = " Not Compiled" if ! _toolchain.is_building() else " Compiling..."
-	pause_btn.disabled = true
 	start_btn.disabled = true
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
@@ -182,7 +182,6 @@ func _built():
 func _on_board_started() -> void:
 	print("Sketch Started")
 	_create_vehicle()
-	vehicle.unfreeze()
 	
 	sketch_log.text = ""
 	uart.console.text = ""	
@@ -366,6 +365,7 @@ func _create_vehicle() -> void:
 	
 	_setup_attachments()
 	reset_vehicle_pos()
+	vehicle.unfreeze()
 
 
 # Adds the vehicle attachments, if there are any
@@ -386,8 +386,10 @@ func reset_vehicle_pos() -> void:
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = Vector3(0,3,0)
+	
+	vehicle.global_transform.origin = world.vehicle_spawn_pos
 	vehicle.global_transform.basis = Basis()
+	
 	if ! was_frozen:
 		vehicle.unfreeze()
 
