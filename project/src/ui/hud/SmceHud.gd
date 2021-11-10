@@ -30,7 +30,7 @@ onready var new_sketch_btn = $Panel/VBoxContainer/ScrollContainer/VBoxContainer/
 onready var notification_display = $Notifications
 
 onready var profile_control = $ProfileControl
-onready var profile_control_toggle = $Panel/VBoxContainer/MarginContainer/VBoxContainer/ProfileControlToggle
+onready var profile_control_toggle = $Panel/VBoxContainer/MarginContainerProfile/VBoxContainer/ProfileControlToggle
 onready var profile_screen_toggle = $ProfileScreentoggle
 
 var button_group: BButtonGroup = BButtonGroup.new()
