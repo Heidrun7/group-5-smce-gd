@@ -10,7 +10,7 @@
 | T9| Stakeholder Communication | S | |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used.
-| T16 | Keybinding help window.  | M | 
+| T16 | Keybinding help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. 
 
 
 | Name                         | Task ID | Contribution in % |
