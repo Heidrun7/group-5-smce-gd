@@ -10,16 +10,18 @@
 | T9| Stakeholder Communication | S | |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used.
+| T16 | Keybinding help window.  | M | 
 
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
+
 | Asad Maraj                   |T3 </br> T14 </br>||
 | Birgitta Feldis Bjarkadottir |T3 </br> T14 </br>||
 | Heidrun Valdis Heidarsdottir |T3 </br> T14 </br>||
 | Henrik Lagergren             |T3 </br> T14 </br>||
 | Johannes Gustavsson          |T3 </br> T14 </br>||
-| Pontus Lindblom              |T3 </br> T14 </br>||
+| Pontus Lindblom              |T3 </br> T14 </br> T16||
 
 # SPRINT 3
 
