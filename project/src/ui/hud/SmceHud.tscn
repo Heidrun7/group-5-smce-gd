@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/ui/hud/SmceHud.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/hud/HelpPane.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/notification_display/NotificationDisplay.gd" type="Script" id=3]
 [ext_resource path="res://media/fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/ui/hud/SettingPane.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/ui/hud/HelpPane.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 use_mipmaps = true
@@ -197,10 +196,9 @@ anchor_right = 0.000602627
 margin_left = -320.0
 margin_right = -16.0
 
-[node name="HelpControl" parent="." instance=ExtResource( 2 )]
+[node name="Help" parent="." instance=ExtResource( 2 )]
 margin_left = -319.229
 margin_right = -15.229
-script = ExtResource( 6 )
 
 [node name="Notifications" type="VBoxContainer" parent="."]
 anchor_left = 1.0
