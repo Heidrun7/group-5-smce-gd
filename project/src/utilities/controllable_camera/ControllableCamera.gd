@@ -27,7 +27,6 @@ signal cam_locked
 signal cam_freed
 
 var locked_cam: Spatial = null
-var free_cam: Spatial = null
 
 var locked = null
 #Cam controller stuff ends
@@ -38,8 +37,10 @@ export(int, 5, 100, 1) var scroll_limit_high = 20
 const Inter_pol = preload("InterPolCamera.gd")
 onready var inter_pol = Inter_pol.new()
 
-var inter_target: Node = null 
+const Free_Cam = preload("FreeCam.gd")
+onready var free_cam = Free_Cam.new()
 
+export(NodePath) var inter_path: NodePath
 
 export(int, 0, 90) var y_angle_limit = 20 setget set_y_angle_limit
 var _y_angle_limit = 0
@@ -107,7 +108,7 @@ func _process(delta: float) -> void:
 func lock_cam(node: Spatial) -> void:
 	if ! is_instance_valid(node) || ! node.is_inside_tree():
 		return
-	inter_target = locked_cam
+	inter_path = locked_cam.get_path()
 	locked_cam.set_target(node)
 	free_cam.set_disabled(true)
 	emit_signal("cam_locked", node)
@@ -117,7 +118,7 @@ func lock_cam(node: Spatial) -> void:
 
 
 func free_cam() -> void:
-	inter_target = free_cam
+	inter_path = free_cam.get_path()
 	free_cam.set_disabled(false)
 	free_cam.transform = locked_cam.transform
 	emit_signal("cam_freed")
@@ -130,6 +131,7 @@ func set_cam_position(transform: Transform = Transform()) -> void:
 	free_cam()
 	locked_cam.global_transform = transform
 	free_cam.global_transform = transform
+	self.global_transform = transform
 
 
 func _on_free(node) -> void:
@@ -137,4 +139,11 @@ func _on_free(node) -> void:
 		free_cam()
 
 func _physics_process(delta):
-	inter_pol.interpolate(self,inter_target)
+	if inter_path == "":
+		return
+		
+	if locked == null:
+		self.global_transform = free_cam.transform
+		return
+	
+	inter_pol.interpolate(self,self.get_node(inter_path) as Node)
