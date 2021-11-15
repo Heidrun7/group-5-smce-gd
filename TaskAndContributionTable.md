@@ -5,22 +5,19 @@
 | T3 | Group Meetings| S | Most often efficient and resulted in valuable content. Can take a lot of time but highly useful. |
 | T4 | Supervision | S | |
 | T5 | Documentation | M | |
-| T7 | Administrative || |
-| T8 | Research| ||
-| T9| Stakeholder Communication | S | |
+| T9| Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List. | S | - |
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used.
 | T16 | Keybinding help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. 
 
-
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
 | Asad Maraj                   |T3 </br> T14 </br>||
-| Birgitta Feldis Bjarkadottir |T3 </br> T14 </br> T16||
-| Heidrun Valdis Heidarsdottir |T3 </br> T14 </br> T16||
+| Birgitta Feldis Bjarkadottir |T3 </br> T14 </br> T16|  </br>  </br> 33% | 
+| Heidrun Valdis Heidarsdottir |T3 </br> T14 </br> T16|  </br>  </br> 33% |
 | Henrik Lagergren             |T3 </br> T14 </br>||
 | Johannes Gustavsson          |T3 </br> T14 </br>||
-| Pontus Lindblom              |T3 </br> T14 </br> T16||
+| Pontus Lindblom              |T3 </br> T14 </br> T16|  </br>  </br> 33% |
 
 # SPRINT 3
 
