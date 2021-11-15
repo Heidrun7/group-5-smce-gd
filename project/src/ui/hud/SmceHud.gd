@@ -70,7 +70,6 @@ func _ready() -> void:
 	
 	profile_control.master_manager = master_manager
 	#help.master_manager = master_manager
-	
 
 
 func _toggle_profile_control(show: bool) -> void:
@@ -81,6 +80,7 @@ func _toggle_profile_control(show: bool) -> void:
 	tween.interpolate_property(profile_control, "rect_position:x", profile_control.rect_position.x,  -int(!show) * (profile_control.rect_size.x) + int(!show) * -8, 0.25,Tween.TRANS_CUBIC)
 	
 	tween.start()
+
 
 #For being able to toggle the help panel.
 func _toggle_help(show: bool) -> void:
@@ -93,8 +93,6 @@ func _toggle_help(show: bool) -> void:
 	tween.interpolate_property(help, "rect_position:x", help.rect_position.x,  -int(!show) * (help.rect_size.x) + int(!show) * -8, 0.25,Tween.TRANS_CUBIC)
 	
 	tween.start()
-
-
 
 
 func _set_vis(visible, node = null) -> void:
