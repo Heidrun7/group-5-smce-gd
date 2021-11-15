@@ -51,7 +51,6 @@ func _ready() -> void:
 func _setup_cams() -> void:
 	ctrl_cam.locked_cam = $Camera/LockedCam
 	ctrl_cam.free_cam = $Camera/FreeCam
-	ctrl_cam.interp_cam = $Camera/InterPolCamera
 
 
 #Creating a world from a given scene.
