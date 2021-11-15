@@ -16,8 +16,8 @@
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
 | Asad Maraj                   |T3 </br> T14 </br>||
-| Birgitta Feldis Bjarkadottir |T3 </br> T14 </br>||
-| Heidrun Valdis Heidarsdottir |T3 </br> T14 </br>||
+| Birgitta Feldis Bjarkadottir |T3 </br> T14 </br> T16||
+| Heidrun Valdis Heidarsdottir |T3 </br> T14 </br> T16||
 | Henrik Lagergren             |T3 </br> T14 </br>||
 | Johannes Gustavsson          |T3 </br> T14 </br>||
 | Pontus Lindblom              |T3 </br> T14 </br> T16||
