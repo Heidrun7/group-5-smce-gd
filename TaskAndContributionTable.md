@@ -8,9 +8,9 @@
 | T7 | Administrative | S | Updating product backlog making sure tasks are included on task list etc. |
 | T9| Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List (sprint backlog) for next sprint. | S |  |
-| T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used.
+| T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used. |
 | T15 | Fix camera bugg camera goes under the ground. | |
-| T16 | Keybinding help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. Reacting to stakeholder feedback and implementing a different solution.
+| T16 | Help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. Reacting to stakeholder feedback and implementing a different solution. |
 | T17 | Change the way the locked on orbit camera position is calculated so that the camera can operate without adding extra nodes into the tree. | |
 
 | Name                         | Task ID | Contribution in % |
