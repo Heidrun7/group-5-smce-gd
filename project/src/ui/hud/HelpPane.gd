@@ -5,43 +5,43 @@ extends PanelContainer
 signal toggled
 
 onready var toggle_btn: Button = $VBoxContainerToggle/MarginContainerToggle/Toggle
-onready var button1: Button = $VBoxContainer/Button1
-onready var button3: Button = $VBoxContainer/Button3
-onready var button4: Button = $VBoxContainer/Button4
-onready var button7: Button = $VBoxContainer/Button7
-onready var button8: Button = $VBoxContainer/Button8
+onready var buttonHome: Button = $VBoxContainer/ButtonHome
+onready var buttonCompile: Button = $VBoxContainer/ButtonCompile
+onready var buttonConfiguration: Button = $VBoxContainer/ButtonConfiguration
+onready var buttonModding: Button = $VBoxContainer/ButtonModding
+onready var buttonCapabilitites: Button = $VBoxContainer/ButtonCapabilities
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	toggle_btn.connect("pressed", self, "emit_signal", ["toggled"])
-	button1.connect("pressed", self, "_button1_pressed")
-	button3.connect("pressed", self, "_button3_pressed")
-	button4.connect("pressed", self, "_button4_pressed")
-	button7.connect("pressed", self, "_button7_pressed")
-	button8.connect("pressed", self, "_button8_pressed")
+	buttonHome.connect("pressed", self, "_buttonHome_pressed")
+	buttonCompile.connect("pressed", self, "_buttonCompile_pressed")
+	buttonConfiguration.connect("pressed", self, "_buttonConfiguration_pressed")
+	buttonModding.connect("pressed", self, "_buttonModding_pressed")
+	buttonCapabilitites.connect("pressed", self, "_buttonCapabilitites_pressed")
 	
 	
 	pass
 
 
-func _button1_pressed():
+func _buttonHome_pressed():
 	OS.shell_open("https://github.com/ItJustWorksTM/smce-gd/wiki")
 	
 
-func _button3_pressed():
+func _buttonCompile_pressed():
 	OS.shell_open("https://github.com/ItJustWorksTM/smce-gd/wiki/Compiling-a-sketch")
 
 
-func _button4_pressed():
+func _buttonConfiguration_pressed():
 	OS.shell_open("https://github.com/ItJustWorksTM/smce-gd/wiki/Configuration")
 
 
-func _button7_pressed():
+func _buttonModding_pressed():
 	OS.shell_open("https://github.com/ItJustWorksTM/smce-gd/wiki/Modding")
 
 
-func _button8_pressed():
+func _buttonCapabilitites_pressed():
 	OS.shell_open("https://github.com/ItJustWorksTM/smce-gd/wiki/Vehicle-Capabilities")
 
 

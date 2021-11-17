@@ -43,7 +43,7 @@ margin_bottom = 20.0
 text = "HELP"
 align = 1
 
-[node name="Button1" type="Button" parent="VBoxContainer"]
+[node name="ButtonHome" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 304.0
 margin_bottom = 50.0
@@ -53,25 +53,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="ButtonCompile" type="Button" parent="VBoxContainer"]
 margin_top = 54.0
 margin_right = 304.0
 margin_bottom = 80.0
 text = "Compiling a Sketch"
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
+[node name="ButtonConfiguration" type="Button" parent="VBoxContainer"]
 margin_top = 84.0
 margin_right = 304.0
 margin_bottom = 110.0
 text = "Configuration"
 
-[node name="Button8" type="Button" parent="VBoxContainer"]
+[node name="ButtonCapabilities" type="Button" parent="VBoxContainer"]
 margin_top = 114.0
 margin_right = 304.0
 margin_bottom = 140.0
-text = "Vechicle Capabilities"
+text = "Vehicle Capabilities"
 
-[node name="Button7" type="Button" parent="VBoxContainer"]
+[node name="ButtonModding" type="Button" parent="VBoxContainer"]
 margin_top = 144.0
 margin_right = 304.0
 margin_bottom = 170.0
