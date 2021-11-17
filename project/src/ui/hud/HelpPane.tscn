@@ -98,13 +98,18 @@ margin_right = 304.0
 margin_bottom = 290.0
 text = "Modding"
 
-[node name="MarginContainerBottom" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 675.0
+[node name="VBoxContainerToggle" type="VBoxContainer" parent="."]
 margin_right = 304.0
-margin_bottom = 716.0
+margin_bottom = 720.0
+alignment = 2
+
+[node name="MarginContainerToggle" type="MarginContainer" parent="VBoxContainerToggle"]
+margin_top = 679.0
+margin_right = 304.0
+margin_bottom = 720.0
 mouse_filter = 2
 
-[node name="Toggle" type="ToolButton" parent="VBoxContainer/MarginContainerBottom"]
+[node name="Toggle" type="ToolButton" parent="VBoxContainerToggle/MarginContainerToggle"]
 margin_right = 48.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 48, 41 )

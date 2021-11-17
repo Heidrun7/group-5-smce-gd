@@ -4,7 +4,7 @@ extends PanelContainer
 
 signal toggled
 
-onready var toggle_btn: Button = $VBoxContainer/MarginContainerBottom/Toggle
+onready var toggle_btn: Button = $VBoxContainerToggle/MarginContainerToggle/Toggle
 onready var button1: Button = $VBoxContainer/Button1
 onready var button2: Button = $VBoxContainer/Button2
 onready var button3: Button = $VBoxContainer/Button3
