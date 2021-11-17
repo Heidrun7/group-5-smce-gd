@@ -40,43 +40,68 @@ margin_bottom = 20.0
 text = "HELP"
 align = 1
 
-[node name="MarginContainerContent" type="MarginContainer" parent="VBoxContainer"]
+[node name="Button1" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 304.0
-margin_bottom = 675.0
-size_flags_vertical = 3
-custom_constants/margin_right = 8
-custom_constants/margin_top = 0
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+margin_bottom = 50.0
+action_mode = 0
+text = "Home"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainerContent"]
-margin_left = 8.0
-margin_right = 296.0
-margin_bottom = 643.0
-bbcode_text = "
-ROVER CONTROLS
-In the Serial option, hit the character key and then Enter to control the rover.
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 304.0
+margin_bottom = 80.0
+text = "Arch Based Linux Setup"
 
-Move Forward: F
-Move Backwards: B
-Rotate Counter Clockwise (left):  L
-Rotate Clockwise (right):  R
-Stop the Rover: Any other character"
-text = "
-ROVER CONTROLS
-In the Serial option, hit the character key and then Enter to control the rover.
+[node name="Button3" type="Button" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 304.0
+margin_bottom = 110.0
+text = "Compiling a Sketch"
 
-Move Forward: F
-Move Backwards: B
-Rotate Counter Clockwise (left):  L
-Rotate Clockwise (right):  R
-Stop the Rover: Any other character"
+[node name="Button4" type="Button" parent="VBoxContainer"]
+margin_top = 114.0
+margin_right = 304.0
+margin_bottom = 140.0
+text = "Configuration"
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+margin_top = 144.0
+margin_right = 304.0
+margin_bottom = 170.0
+text = "Debian Based Linux Setup"
+
+[node name="Button6" type="Button" parent="VBoxContainer"]
+margin_top = 174.0
+margin_right = 304.0
+margin_bottom = 200.0
+text = "MacOs Setup"
+
+[node name="Button9" type="Button" parent="VBoxContainer"]
+margin_top = 204.0
+margin_right = 304.0
+margin_bottom = 230.0
+text = "Windows Setup"
+
+[node name="Button8" type="Button" parent="VBoxContainer"]
+margin_top = 234.0
+margin_right = 304.0
+margin_bottom = 260.0
+text = "Vechicle Capabilities"
+
+[node name="Button7" type="Button" parent="VBoxContainer"]
+margin_top = 264.0
+margin_right = 304.0
+margin_bottom = 290.0
+text = "Modding"
 
 [node name="MarginContainerBottom" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 679.0
+margin_top = 675.0
 margin_right = 304.0
-margin_bottom = 720.0
+margin_bottom = 716.0
 mouse_filter = 2
 
 [node name="Toggle" type="ToolButton" parent="VBoxContainer/MarginContainerBottom"]
