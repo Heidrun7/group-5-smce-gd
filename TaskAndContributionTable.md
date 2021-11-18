@@ -11,14 +11,14 @@
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used. |
 | T15 | Fix camera bugg camera goes under the ground. | |
 | T16 | Help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. Reacting to stakeholder feedback and implementing a different solution. |
-| T17 | Change the way the locked on orbit camera position is calculated so that the camera can operate without adding extra nodes into the tree. | |
+| T17 | Change the way the locked on orbit camera position is calculated so that the camera can operate without adding extra nodes into the tree. | M | Since it was mainly a refator task a lot of time was spent on understanding how the camera together with the nodes were working, and how we potentially could extract it into one. We got help from stakeholders with advice and feedback. The solution might not be optimal.
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
 | Asad Maraj                   |T3 </br> T14 </br>||
 | Birgitta Feldis Bjarkadottir |T3 </br> T7 </br> T9 </br> T14 </br> T16|  </br> </br> </br> </br> 33% | 
 | Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T16|  </br> </br> </br>  </br>  </br> 33% |
-| Henrik Lagergren             |T3 </br> T14 </br>||
+| Henrik Lagergren             |T3 </br> T7 </br> T10 </br> T14 </br> T17 |  </br> </br> </br>  </br> 50% |
 | Johannes Gustavsson          |T3 </br> T14 </br>||
 | Pontus Lindblom              |T3 </br> T14 </br> T16|  </br>  </br> 33% |
 
