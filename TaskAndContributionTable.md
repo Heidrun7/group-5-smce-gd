@@ -4,11 +4,11 @@
 |:----------:|-------|:------:|------|
 | T3 | Group Meetings| S | Most often efficient and resulted in valuable content. Can take a lot of time but highly useful. |
 | T4 | Supervision | S | Communication with TA regarding DevTool. |
-| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list etc.|
+| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list, updating the Task&Contribution table, etc.|
 | T9| Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List (sprint backlog) for next sprint. | S |  |
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used. |
-| T16 | Help window. Adding a help window for instructions on how to drive the emulated car.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. Reacting to stakeholder feedback and implementing a different solution. |
+| T16 | Help window. Adding a help window for instructions on how to use the system.  | M | Teamwork towards a good solution to the task. Mainly godot learning curve figuring out how different parts connect and can be used together. Reacting to stakeholder feedback and implementing a different solution. |
 | T17 | Change the way the locked on orbit camera position is calculated so that the camera can operate without adding extra nodes into the tree. | M | Since it was mainly a refator task a lot of time was spent on understanding how the camera together with the nodes were working, and how we potentially could extract it into one. We got help from stakeholders with advice and feedback. 
 
 | Name                         | Task ID | Contribution in % |
