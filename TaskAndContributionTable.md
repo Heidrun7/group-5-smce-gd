@@ -5,7 +5,7 @@
 | T3 | Group Meetings| S | Most often efficient and resulted in valuable content. Can take a lot of time but highly useful. |
 | T4 | Supervision | S | Communication with TA. |
 | T5 | Documentation | M | |
-| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list etc. |
+| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list etc.|
 | T9| Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 4 Preperation. Creating and preparing presentation and class demo. Creating Task List (sprint backlog) for next sprint. | S |  |
 | T14 | DevTool Proposal | M | Coming up with an idea and working on clarifying it to be able to form a DevTool Proposal. Thinking of implementations, MVP and metrics that could be used. |
@@ -15,12 +15,12 @@
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
-| Asad Maraj                   |T3 </br> T14 </br>||
-| Birgitta Feldis Bjarkadottir |T3 </br> T7 </br> T9 </br> T14 </br> T16|  </br> </br> </br> </br> 33% | 
-| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T16|  </br> </br> </br>  </br>  </br> 33% |
-| Henrik Lagergren             |T3 </br> T14 </br>||
-| Johannes Gustavsson          |T3 </br> T14 </br>||
-| Pontus Lindblom              |T3 </br> T14 </br> T16|  </br>  </br> 33% |
+| Asad Maraj                   |T3 </br> T14 </br>|16.6%|
+| Birgitta Feldis Bjarkadottir |T3 </br> T7 </br> T9 </br> T14 </br> T16| 16.6% </br> 50% </br> 33% </br> 16.6% </br> 33% | 
+| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T16| 16.6% </br> 50% </br> 33% </br> 16.6% </br>  </br> 33% |
+| Henrik Lagergren             |T3 </br> T14 </br>|16.6%|
+| Johannes Gustavsson          |T3 </br> T9 </br> T14 </br>|16.6% </br> 33%> 16.6% |
+| Pontus Lindblom              |T3 </br> T14 </br> T16| 16.6% </br> 16.6% </br> 33% |
 
 # SPRINT 3
 
