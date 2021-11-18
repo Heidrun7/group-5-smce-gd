@@ -15,9 +15,9 @@
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
-| Asad Maraj                   |T3 </br> T14 </br>|16.6%|
+| Asad Maraj                   |T3 </br> T14 </br>|16.6% </br> 16.6%|
 | Birgitta Feldis Bjarkadottir |T3 </br> T7 </br> T9 </br> T14 </br> T16| 16.6% </br> 50% </br> 33% </br> 16.6% </br> 33% | 
-| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T16| 16.6% </br> 50% </br> 33% </br> 16.6% </br>  </br> 33% |
+| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T16| 16.6% </br> 50% </br> 33% </br> 50% </br> 16.6% </br> 33% |
 | Henrik Lagergren             |T3 </br> T14 </br>|16.6%|
 | Johannes Gustavsson          |T3 </br> T9 </br> T14 </br>|16.6% </br> 33%> 16.6% |
 | Pontus Lindblom              |T3 </br> T14 </br> T16| 16.6% </br> 16.6% </br> 33% |
