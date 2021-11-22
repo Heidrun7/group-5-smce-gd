@@ -10,6 +10,7 @@
 #
 #  Unless required by applicable law or agreed to in writing, software
 #  distributed under the License is distributed on an "AS IS" BASIS,
+#  distributed under the License is distributed on an "AS IS" BASIS,
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
@@ -30,7 +31,9 @@ onready var new_sketch_btn = $Panel/VBoxContainer/ScrollContainer/VBoxContainer/
 onready var notification_display = $Notifications
 
 onready var profile_control = $ProfileControl
-onready var profile_control_toggle = $Panel/VBoxContainer/MarginContainer/VBoxContainer/ProfileControlToggle
+onready var help = $Help
+onready var profile_control_toggle = $Panel/VBoxContainer/MarginContainerProfile/VBoxContainer/ProfileControlToggle
+onready var help_toggle =$Panel/VBoxContainer/MarginContainerHelp/VBoxContainer/HelpToggle
 onready var profile_screen_toggle = $ProfileScreentoggle
 
 var button_group: BButtonGroup = BButtonGroup.new()
@@ -60,10 +63,13 @@ func _ready() -> void:
 	button_group._init()
 	new_sketch_btn.connect("pressed", self, "_on_sketch_btn")
 	profile_control.connect("toggled", self, "_toggle_profile_control", [false])
+	help.connect("toggled", self, "_toggle_help", [false])
 	profile_control_toggle.connect("pressed", self, "_toggle_profile_control", [true])
+	help_toggle.connect("pressed", self, "_toggle_help", [true])
 	profile_screen_toggle.connect("button_down", self, "_toggle_profile_control", [false])
 	
 	profile_control.master_manager = master_manager
+	#help.master_manager = master_manager
 
 
 func _toggle_profile_control(show: bool) -> void:
@@ -72,6 +78,19 @@ func _toggle_profile_control(show: bool) -> void:
 	
 	profile_screen_toggle.visible = show
 	tween.interpolate_property(profile_control, "rect_position:x", profile_control.rect_position.x,  -int(!show) * (profile_control.rect_size.x) + int(!show) * -8, 0.25,Tween.TRANS_CUBIC)
+	
+	tween.start()
+
+
+#For being able to toggle the help panel.
+func _toggle_help(show: bool) -> void:
+	var tween: Tween = TempTween.new()
+	add_child(tween)
+	
+	#Shows the profile screen.
+	profile_screen_toggle.visible = show
+	
+	tween.interpolate_property(help, "rect_position:x", help.rect_position.x,  -int(!show) * (help.rect_size.x) + int(!show) * -8, 0.25,Tween.TRANS_CUBIC)
 	
 	tween.start()
 
