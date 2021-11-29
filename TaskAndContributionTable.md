@@ -6,11 +6,11 @@
 | T9 | Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 5 Preperation | S | Creating and preparing presentation and class demo. |
 | T14 | DevTool | M | Description. |
-| T15 | Stop camera from going underground | M | Description. |
+| T15 | Stop camera from going underground | M | An attempt was made to stop the camera from going underground as this makes the user lose visuals of everything above ground. Many hours of work was put to the task, but it was ultimately discarded (not implemented) as the solution for the task would be far too great for the benefits it would bring. |
 | T17 | Change the way the locked on orbit camera position is calculated so that the camera can operate without adding extra nodes into the tree. | M | Since it was mainly a refator task a lot of time was spent on understanding how the camera together with the nodes were working, and how we potentially could extract it into one. We got help from stakeholders with advice and feedback. |
-| T18 | Remove hard coded SMCE-gd version | S | Description. |
-| T19 | Fix Suspend-button when removing vehicle | S | Description. |
-| T20 | Group report | M | Description. |
+| T18 | Remove hard coded SMCE-gd version | S | After working on the task we noticed that the hard-coded "SMCE-gd v1.2" got replaced when the program started, so the identified problem was actually not a problem. |
+| T19 | Fix Suspend-button when removing vehicle | S | There was a bug where the "Suspend"-button was set to "Resume" when you spawned the vehicle and the "Resume" button was present before spawning the vehicle. This caused the "Resume"-button to suspend the vehicle, which is not the intended behavior. |
+| T20 | Group report | M | Creating the Overleaf document and starting to work on the content. |
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
