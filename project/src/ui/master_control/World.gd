@@ -50,7 +50,6 @@ func _ready() -> void:
 #Set-up for the different cameras to follow the car.
 func _setup_cams() -> void:
 	ctrl_cam.locked_cam = $Camera/LockedCam
-	ctrl_cam.free_cam = $Camera/FreeCam
 
 
 #Creating a world from a given scene.

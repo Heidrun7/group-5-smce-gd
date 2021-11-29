@@ -28,8 +28,12 @@ signal cam_freed
 
 var locked_cam: Spatial = null
 
+export(NodePath) var inter_path: NodePath
+
 var locked = null
 #Cam controller stuff ends
+
+var isLocked = false
 
 export(int, 5, 100, 1) var scroll_limit_low = 5
 export(int, 5, 100, 1) var scroll_limit_high = 20
@@ -40,11 +44,13 @@ onready var inter_pol = Inter_pol.new()
 const Free_Cam = preload("FreeCam.gd")
 onready var free_cam = Free_Cam.new()
 
-export(NodePath) var inter_path: NodePath
-
 export(int, 0, 90) var y_angle_limit = 20 setget set_y_angle_limit
 var _y_angle_limit = 0
 func set_y_angle_limit(limit: float) -> void:
+	if !isLocked:
+		free_cam.set_y_angle_limit(limit)
+		return
+		
 	_y_angle_limit = range_lerp(limit, 0, 90, 0, PI/2)
 	y_angle_limit = y_angle_limit
 	_update_pos()
@@ -71,8 +77,10 @@ func get_target():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if FocusOwner.has_focus():
+	if !isLocked && free_cam != null:
+		free_cam.unhandled_input(event)
 		return
+		
 	
 	_zoom += 0.5 * int(event.is_action("scroll_down")) - int(event.is_action("scroll_up"))
 	_zoom = clamp(_zoom, scroll_limit_low, scroll_limit_high)
@@ -86,6 +94,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _update_pos():
+	if !isLocked:
+		free_cam.update_pos()
+		return
+		
 	rot_y = clamp(rot_y, _y_angle_limit, PI - _y_angle_limit)
 	if is_instance_valid(target):
 		target.transform.basis = Basis(Quat(Vector3(rot_y, rot_x, 0)))
@@ -108,8 +120,9 @@ func _process(delta: float) -> void:
 func lock_cam(node: Spatial) -> void:
 	if ! is_instance_valid(node) || ! node.is_inside_tree():
 		return
-	inter_path = locked_cam.get_path()
+	isLocked = true
 	locked_cam.set_target(node)
+	inter_path = locked_cam.get_path()
 	free_cam.set_disabled(true)
 	emit_signal("cam_locked", node)
 	locked = node
@@ -118,7 +131,10 @@ func lock_cam(node: Spatial) -> void:
 
 
 func free_cam() -> void:
-	inter_path = free_cam.get_path()
+	if free_cam == null:
+		free_cam = Free_Cam.new()
+		
+	isLocked = false
 	free_cam.set_disabled(false)
 	free_cam.transform = locked_cam.transform
 	emit_signal("cam_freed")
@@ -139,11 +155,14 @@ func _on_free(node) -> void:
 		free_cam()
 
 func _physics_process(delta):
-	if inter_path == "":
-		return
-		
-	if locked == null:
+	
+	if !isLocked && free_cam != null:
+		free_cam.physics_process(delta)
 		self.global_transform = free_cam.transform
 		return
+		
+	if inter_path == "":
+		return
+	
 	
 	inter_pol.interpolate(self,self.get_node(inter_path) as Node)
