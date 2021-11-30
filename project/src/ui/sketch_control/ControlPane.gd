@@ -269,6 +269,8 @@ func _on_reset_pos() -> void:
 
 
 func _on_start() -> void:
+	pause_btn.text = "Suspend"
+	
 	match _board.status():
 		SMCE.Status.RUNNING, SMCE.Status.SUSPENDED:
 			Util.print_if_err(_board.terminate())
