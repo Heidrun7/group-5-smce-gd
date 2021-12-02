@@ -44,12 +44,12 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	DebugCanvas.disabled = true
-	_setup_cams()
+#	_setup_cams()
 
 
 #Set-up for the different cameras to follow the car.
-func _setup_cams() -> void:
-	ctrl_cam.locked_cam = $Camera/LockedCam
+#func _setup_cams() -> void:
+#	ctrl_cam.locked_cam = $Camera/LockedCam
 
 
 #Creating a world from a given scene.

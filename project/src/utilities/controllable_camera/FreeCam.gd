@@ -1,8 +1,10 @@
-extends Spatial
+
 
 export var disabled = false setget set_disabled
 
 var lookaround_speed = 0.01
+
+var camera_node
 
 export(int, 0, 90) var y_angle_limit = 20 setget set_y_angle_limit
 var _y_angle_limit = 0
@@ -15,7 +17,6 @@ var rot_x = 0
 var rot_y = 0
 
 func set_disabled(_disabled: bool) -> void:
-	set_physics_process(! _disabled)
 	disabled = _disabled
 
 
@@ -28,12 +29,10 @@ func unhandled_input(event) -> void:
 
 func update_pos():
 	rot_y = clamp(rot_y, _y_angle_limit, PI - _y_angle_limit)
-	transform.basis = Basis(Quat(Vector3(rot_y - PI /2, rot_x, 0)))
+	camera_node.transform.basis = Basis(Quat(Vector3(rot_y - PI /2, rot_x, 0)))
 
 
 func physics_process(delta: float) -> void:
-	if disabled:
-		set_physics_process(false)
 	
 	if FocusOwner.has_focus():
 		return
@@ -46,6 +45,9 @@ func physics_process(delta: float) -> void:
 	
 	
 	if new != Vector3.ZERO:
-		translate(new)
+		camera_node.translate(new)
 
 	#global_translate(up)
+	
+func _init(cameraNode):
+	camera_node = cameraNode
