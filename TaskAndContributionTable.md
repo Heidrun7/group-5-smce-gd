@@ -16,11 +16,11 @@
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
-| Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 20% </br> 50% </br> 50% </br> 10% |
-| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> 35% </br> ?20% </br> 50% |
-| Henrik Lagergren             |T3 </br> T17  </br> T20 </br> T21| 20% </br> 20% </br> 10% </br> 100% |
-| Johannes Gustavsson          |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T17 | 20% </br> 5% </br> 20% </br> 50% </br> 5%? </br> 60?% |
-| Pontus Lindblom              |T3 </br> T7 </br> T15 </br> T18 </br> T19 </br> T20 | 20% </br> 65% </br> 100% </br> 100% </br> 100% </br> 80% |
+| Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 33.3% </br> 50% </br> 47.5% </br> 10% |
+| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> 40% </br> 33.3% </br> 47.5% |
+| Henrik Lagergren             |T3 </br> T17  </br> T20 </br> T21| 20% </br> 30% </br> 10% </br> 100% |
+| Johannes Gustavsson          |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T17 | 20% </br> 5% </br> 33.3% </br> 50% </br> 5% </br> 70% |
+| Pontus Lindblom              |T3 </br> T7 </br> T15 </br> T18 </br> T19 </br> T20 | 20% </br> 55% </br> 100% </br> 100% </br> 100% </br> 80% |
 
 
 # SPRINT 4
