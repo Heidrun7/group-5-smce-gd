@@ -11,12 +11,14 @@
 | T18 | Remove hard coded SMCE-gd version | S | After working on the task we noticed that the hard-coded "SMCE-gd v1.2" got replaced when the program started, so the identified problem was actually not a problem. |
 | T19 | Fix Suspend-button when removing vehicle | S | There was a bug where the "Suspend"-button was set to "Resume" when you spawned the vehicle and the "Resume" button was present before spawning the vehicle. This caused the "Resume"-button to suspend the vehicle, which is not the intended behavior. |
 | T20 | Group report | M | Creating the Overleaf document and starting to work on the content. |
+| T21 | Rebase libSMCE | S | Rebased libSMCE to latest version, fixed conflicts and made sure that tests worked as intended. |
+
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
 | Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 20% </br> 50% </br> 35%? </br> 10% |
 | Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> ?50% </br> ?20% </br> 50% |
-| Henrik Lagergren             |T3 </br> T? </br> T? </br> T? | 20% </br> ??% </br> ??% </br> ??% |
+| Henrik Lagergren             |T3 </br> T17 </br> T21 </br> T20 | 20% </br> 20% </br> 100% </br> 10% |
 | Johannes Gustavsson          |T3 </br> T? </br> T? </br> T? | 20% </br> ??% </br> ??% </br> ??% |
 | Pontus Lindblom              |T3 </br> T7 </br> T14 </br> T15 </br> T18 </br> T19 </br> T20 | 20% </br> ??% </br> ??% </br> 100% </br> 100% </br> 100% </br> ??% |
 
