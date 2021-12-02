@@ -2,7 +2,7 @@
 | Task ID |Description| Complexity (small/medium/large) | Justification
 |:----------:|-------|:------:|------|
 | T3 | Group Meetings | S | Most often efficient and resulted in valuable content. Can take a lot of time but highly useful. |
-| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list, updating the Task&Contribution table, etc. |
+| T7 | Administrative | S | Updating product backlog making sure tasks are included on task list, updating the Task&Contribution table, managing GitHub repositories (e.g. settings, pull requests), etc. |
 | T9 | Stakeholder Communication | S | Communication via text on discord, meetings etc. |
 | T10 | Milestone 5 Preperation | S | Creating and preparing presentation and class demo. |
 | T14 | DevTool | M | Description. |
@@ -15,7 +15,7 @@
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
 | Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 20% </br> 50% </br> 10% |
-| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> ?33% </br> ?20% </br> 50% |
+| Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> ?50% </br> ?20% </br> 50% |
 | Henrik Lagergren             |T3 </br> T? </br> T? </br> T? | 20% </br> ??% </br> ??% </br> ??% |
 | Johannes Gustavsson          |T3 </br> T? </br> T? </br> T? | 20% </br> ??% </br> ??% </br> ??% |
 | Pontus Lindblom              |T3 </br> T7 </br> T14 </br> T15 </br> T18 </br> T19 </br> T20 | 20% </br> ??% </br> ??% </br> 100% </br> 100% </br> 100% </br> ??% |
