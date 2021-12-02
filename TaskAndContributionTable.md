@@ -16,7 +16,7 @@
 
 | Name                         | Task ID | Contribution in % |
 | ---------------------------- | :-----: | :---------------: |
-| Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 20% </br> 50% </br> 10% |
+| Birgitta Feldis Bjarkadottir |T3 </br> T9 </br> T10 </br> T14 </br> T20 | 20% </br> 20% </br> 50% </br> 50% </br> 10% |
 | Heidrun Valdis Heidarsdottir |T3 </br> T7 </br> T9 </br> T14 | 20% </br> 35% </br> ?20% </br> 50% |
 | Henrik Lagergren             |T3 </br> T17  </br> T20 </br> T21| 20% </br> 20% </br> 10% </br> 100% |
 | Johannes Gustavsson          |T3 </br> T7 </br> T9 </br> T10 </br> T14 </br> T17 | 20% </br> 5% </br> 20% </br> 50% </br> 5%? </br> 60?% |
