@@ -24,6 +24,7 @@ onready var _log: RichTextLabel = $Log
 onready var _button: Button = $Button
 
 var error: String = ""
+var devTool =  preload("res://printScript.tscn").instance()
 
 # Function to be able to set user custom directory with environment
 func _ready():
@@ -84,8 +85,27 @@ func _ready():
 # somehow destroys res://
 	ModManager.load_mods()
 	
-	_continue()
+	var treeFile = File.new()
+	var tree = get_tree().get_root()
+
+	treeFile.open("res://src//devTree2.txt", File.WRITE)
+	var parent_id=0
+	var child_id=0
+	devTool.print_tree_pretty_custom(treeFile, tree,  "", true, parent_id, child_id)
 	
+	treeFile.close()
+	
+	_continue()
+ 
+#func print_tree_pretty_custom(file: File, node: Node, prefix: String, last: bool) -> void:
+#	var new_prefix = " ┖╴" if last else " ┠╴"
+#	file.store_string(prefix + new_prefix + node.get_name() + "\n")
+#	var children = node.get_children()
+#	for i in range(children.size()):
+#		new_prefix = "   " if last else " ┃ "
+#		print_tree_pretty_custom(file, children[i], prefix + new_prefix, i == (children.size() - 1))
+	
+		
 # Check if main scene exist or not
 func _continue():
 	if ! main_scene:
