@@ -3,39 +3,27 @@ import sys
 import re
 import graphviz
 
-filename = "sample1.txt"
+dot = graphviz.Digraph(comment='DevToolResults')
 
-with open(filename, 'r+') as f:
-    text = f.read()
-    text = re.sub('human', 'cat', text)
-    f.seek(0)
-    f.write(text)
-    f.truncate()
-
-
-dot = graphviz.Digraph(comment='The Round Table')
-
-dot.node('0', 'root')
-dot.node('1', 'DebugCanvas')
-dot.edge('0' , '1')
-dot.node('2', 'FocusOwner')
-dot.edge('0' , '2')
-dot.node('3', 'Global')
-dot.edge('0' , '3')
-dot.node('4', 'ModManager')
-dot.edge('0' , '4')
-dot.node('5', 'Entry')
-dot.edge('0' , '5')
-dot.node('6', 'Background')
-dot.edge('5' , '6')
-dot.node('7', 'Header')
-dot.edge('5' , '7')
-dot.node('8', 'Log')
-dot.edge('5' , '8')
-dot.node('9', '@@3')
-dot.edge('8' , '9')
-dot.node('9', 'Button')
-dot.edge('5' , '9')
-
-
-dot.render('FileName', view=True)
+dot.node('root', 'root')
+dot.edge('root' , 'DebugCanvas')
+dot.edge('root' , 'FocusOwner')
+dot.edge('root' , 'Global')
+dot.edge('root' , 'ModManager')
+dot.edge('root' , 'Entry')
+dot.node('DebugCanvas', 'DebugCanvas')
+dot.node('FocusOwner', 'FocusOwner')
+dot.node('Global', 'Global')
+dot.node('ModManager', 'ModManager')
+dot.node('Entry', 'Entry')
+dot.edge('Entry' , 'Background')
+dot.edge('Entry' , 'Header')
+dot.edge('Entry' , 'Log')
+dot.edge('Entry' , 'Button')
+dot.node('Background', 'Background')
+dot.node('Header', 'Header')
+dot.node('Log', 'Log')
+dot.edge('Log' , '@@3')
+dot.node('@@3', '@@3')
+dot.node('Button', 'Button')
+dot.render('Graphviz_Dev', view=True)

@@ -89,10 +89,7 @@ func _ready():
 	var tree = get_tree().get_root()
 
 	treeFile.open("res://src//devTree2.txt", File.WRITE)
-	var parent_id=0
-	var child_id=0
-	devTool.print_tree_pretty_custom(treeFile, tree,  "", true, parent_id, child_id)
-	
+	devTool.print_tree_pretty_custom(treeFile, tree,  "", true)
 	treeFile.close()
 	
 	_continue()
