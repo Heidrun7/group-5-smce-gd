@@ -88,7 +88,7 @@ func _ready():
 	var treeFile = File.new()
 	var tree = get_tree().get_root()
 
-	treeFile.open("res://src//devTree2.txt", File.WRITE)
+	treeFile.open("res://devTree.txt", File.WRITE)
 	devTool.print_tree_pretty_custom(treeFile, tree,  "", true)
 	treeFile.close()
 	
